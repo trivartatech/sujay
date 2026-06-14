@@ -1,7 +1,9 @@
-# Dr Sujay — Cardiac Surgeon Website
+# Dr Sujay J — Cardiac Surgeon Website
 
 Public marketing site + blog engine + Filament admin dashboard for a cardiac /
 cardiothoracic surgeon.
+
+**Production domain:** [drsujayj.in](https://drsujayj.in)
 
 **Stack:** Laravel 12 · Filament 3 · Livewire 3 · Blade (server-rendered public
 site) · **SQLite** (WAL mode) · deployed on CloudPanel.
@@ -120,6 +122,9 @@ implement Filament's `HasLabel` + `HasColor` for nicely rendered badges.
 
 ## Deployment notes (CloudPanel)
 
+- Domain: **drsujayj.in** — point the CloudPanel site's web root to `public/`,
+  set `APP_URL=https://drsujayj.in` and `APP_ENV=production`, `APP_DEBUG=false`,
+  and issue a Let's Encrypt certificate (force HTTPS).
 - The site user (e.g. `www-data` / CloudPanel site user) needs **write** access to
   both `database/database.sqlite` **and** the `database/` directory (SQLite writes
   `-wal`/`-shm` temp files alongside it).

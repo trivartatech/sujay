@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         // Sensible default site settings.
         $defaults = [
-            ['seo.default_title', 'Dr Sujay — Cardiac & Cardiothoracic Surgeon', 'seo'],
+            ['seo.default_title', 'Dr Sujay J — Cardiac & Cardiothoracic Surgeon', 'seo'],
             ['seo.default_description', 'Experienced cardiac surgeon specialising in CABG, valve replacement, and pediatric cardiac surgery.', 'seo'],
             ['stats.years_experience', 0, 'homepage'],
             ['stats.surgeries_performed', 0, 'homepage'],
