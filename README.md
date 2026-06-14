@@ -8,11 +8,12 @@ cardiothoracic surgeon.
 **Stack:** Laravel 12 · Filament 3 · Livewire 3 · Blade (server-rendered public
 site) · **SQLite** (WAL mode) · deployed on CloudPanel.
 
-> **Status:** Phase 1 (Foundation) scaffolded. This repo currently contains the
-> application skeleton, database migrations, Eloquent models, and the Filament
-> admin panel provider. Dependencies are **not** installed yet — run the setup
-> below. Filament *resources* (the admin CRUD screens) are generated locally via
-> artisan, see [step 6](#6-generate-the-filament-admin-resources).
+> **Status:** Phases 1–5 built. This repo contains the full application —
+> skeleton, migrations, models, the Filament admin panel **with hand-written
+> resources** (Posts, Categories, Procedures, Appointments, Testimonials,
+> Enquiries), and the complete public site (home, about, procedures, blog,
+> contact, appointment booking, sitemap). Dependencies are **not** installed
+> yet (this repo is source only) — run the setup below.
 
 ---
 
@@ -52,35 +53,19 @@ php artisan migrate --seed
 ```
 Seeding creates an initial admin user and default site settings.
 
-### 5. Install Filament assets + create your admin login
+### 5. Filament assets + storage link + admin login
 ```bash
 php artisan filament:install --panels    # publishes Filament assets (first time only)
-php artisan make:filament-user           # or use the seeded admin below
+php artisan storage:link                  # serve uploaded images from public/storage
 ```
+The admin **resources already exist** in `app/Filament/Resources/` — no
+`make:filament-resource` needed.
 
 **Seeded admin login** (change the password immediately):
 - Email: `admin@example.com`
 - Password: `password`
 
-### 6. Generate the Filament admin resources
-The models and migrations exist, so Filament can auto-generate CRUD screens from
-them. Run once per model:
-
-```bash
-php artisan make:filament-resource Post --generate --view
-php artisan make:filament-resource Category --generate
-php artisan make:filament-resource Procedure --generate --view
-php artisan make:filament-resource Appointment --generate --view
-php artisan make:filament-resource Testimonial --generate --view
-php artisan make:filament-resource Enquiry --generate --view
-php artisan make:filament-resource Tag --generate
-```
-`--generate` infers form fields and table columns from the table schema;
-`--view` adds a read-only view page. Tweak the generated classes in
-`app/Filament/Resources/` afterwards (rich editor for `Post.body`, file uploads
-for images, an enum `Select` for `status`, etc.).
-
-### 7. Run it
+### 6. Run it
 ```bash
 php artisan serve
 ```
@@ -115,10 +100,18 @@ implement Filament's `HasLabel` + `HasColor` for nicely rendered badges.
 ## Roadmap
 
 - **Phase 1 — Foundation** ✅ skeleton, SQLite, migrations, models, Filament panel
-- **Phase 2 — Public site** — Home, About, Procedures, Contact, responsive, WhatsApp CTA
-- **Phase 3 — Blog engine** — public listing/single, categories, SEO meta, schema.org
-- **Phase 4 — Appointments + enquiries** — booking flow, email notifications, DPDP consent
-- **Phase 5 — Polish + deploy** — testimonials, media library, SEO settings, sitemap, CloudPanel
+- **Phase 2 — Public site** ✅ Home, About, Procedures, Contact, responsive, WhatsApp CTA
+- **Phase 3 — Blog engine** ✅ public listing/single, category filter, SEO meta, schema.org
+- **Phase 4 — Appointments + enquiries** ✅ booking + contact flow, email notifications, DPDP consent + honeypot
+- **Phase 5 — Polish** ✅ testimonials, sitemap.xml, SEO/OG tags, medical disclaimer, admin dashboard
+
+### Remaining / optional polish
+- `php artisan storage:link` on each environment (images won't show otherwise)
+- CSV export on appointments (`make:filament-exporter Appointment`)
+- A Settings page in the panel to edit homepage stats / SEO defaults (currently seeded; editable via `tinker` or a future Filament page)
+- Real surgeon photos, bio copy, qualifications, and contact address
+- WhatsApp Business API / SMS (DLT) automation — paid add-ons
+- `www` → non-`www` canonical redirect (web-server level on CloudPanel)
 
 ## Deployment notes (CloudPanel)
 

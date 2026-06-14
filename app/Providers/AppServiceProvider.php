@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,5 +28,8 @@ class AppServiceProvider extends ServiceProvider
 
         // Use immutable Carbon dates app-wide.
         Date::use(\Carbon\CarbonImmutable::class);
+
+        // Custom, dependency-free pagination markup (matches public/css/app.css).
+        Paginator::defaultView('partials.pagination');
     }
 }

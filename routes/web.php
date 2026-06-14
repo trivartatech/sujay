@@ -1,29 +1,35 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProcedureController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Public site routes
-|--------------------------------------------------------------------------
-| Phase 2/3 will flesh these out with controllers + Blade views. Stubs are
-| kept here so the route map is documented from the start. The Filament
-| admin panel registers its own routes under /admin via AdminPanelProvider.
-*/
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::view('/', 'welcome')->name('home');
+// Static / about
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
-// Phase 2 — public pages (controllers added later)
-// Route::get('/about', [PageController::class, 'about'])->name('about');
-// Route::get('/procedures', [ProcedureController::class, 'index'])->name('procedures.index');
-// Route::get('/procedures/{procedure:slug}', [ProcedureController::class, 'show'])->name('procedures.show');
-// Route::get('/contact', [ContactController::class, 'show'])->name('contact');
-// Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+// Procedures / services
+Route::get('/procedures', [ProcedureController::class, 'index'])->name('procedures.index');
+Route::get('/procedures/{procedure:slug}', [ProcedureController::class, 'show'])->name('procedures.show');
 
-// Phase 3 — blog
-// Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-// Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+// Blog
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
-// Phase 4 — appointments
-// Route::get('/appointment', [AppointmentController::class, 'create'])->name('appointment.create');
-// Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+// Contact + enquiry
+Route::get('/contact', [ContactController::class, 'show'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Appointments
+Route::get('/appointment', [AppointmentController::class, 'create'])->name('appointment.create');
+Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+
+// SEO
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
