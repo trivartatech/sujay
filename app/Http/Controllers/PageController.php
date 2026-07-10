@@ -12,8 +12,13 @@ class PageController extends Controller
         return view('pages.about', [
             'stats' => [
                 'years' => Setting::get('stats.years_experience', 0),
-                'surgeries' => Setting::get('stats.surgeries_performed', 0),
+                'patients' => Setting::get('stats.patients_treated', 0),
             ],
         ]);
+    }
+
+    public function philosophy(): View
+    {
+        return view('pages.philosophy');
     }
 }

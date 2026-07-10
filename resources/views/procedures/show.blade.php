@@ -5,17 +5,14 @@
 
 @push('head')
     <script type="application/ld+json">
-    {!! json_encode([
+    {!! json_encode(array_filter([
         '@context' => 'https://schema.org',
         '@type' => 'MedicalProcedure',
         'name' => $procedure->title,
         'description' => strip_tags($procedure->summary ?? ''),
-        'url' => route('procedures.show', $procedure),
-        'performer' => [
-            '@type' => 'Physician',
-            'name' => config('site.name'),
-        ],
-    ], JSON_UNESCAPED_SLASHES) !!}
+        'url' => route('services.show', $procedure),
+        'performer' => ['@type' => 'Physician', 'name' => config('site.name')],
+    ]), JSON_UNESCAPED_SLASHES) !!}
     </script>
 @endpush
 
@@ -24,7 +21,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{ route('home') }}">Home</a> ·
-                <a href="{{ route('procedures.index') }}">Procedures</a> ·
+                <a href="{{ route('services.index') }}">Services</a> ·
                 {{ $procedure->title }}
             </div>
             <h1>{{ $procedure->title }}</h1>
@@ -33,28 +30,29 @@
     </section>
 
     <section class="section">
-        <div class="container split">
-            <article class="prose">
+        <div class="container split split--start">
+            <article class="prose" style="max-width:none">
                 @if($procedure->image)
                     <img src="{{ asset('storage/'.$procedure->image) }}" alt="{{ $procedure->title }}">
                 @endif
+
                 {!! $procedure->body !!}
 
                 <p style="margin-top:2rem">
-                    <a href="{{ route('appointment.create') }}" class="btn btn--primary">Book a Consultation</a>
+                    <a href="{{ route('appointment.create') }}" class="btn btn--primary">Request Consultation</a>
                     <a href="https://wa.me/{{ config('site.whatsapp') }}" class="btn btn--whatsapp" target="_blank" rel="noopener">Ask on WhatsApp</a>
                 </p>
             </article>
 
             <aside>
                 <div class="form">
-                    <h3 style="margin-top:0">Other procedures</h3>
+                    <h3 style="margin-top:0">Other services</h3>
                     <ul class="footer__links" style="list-style:none;padding:0">
                         @foreach($related as $item)
-                            <li style="margin-bottom:.6rem"><a href="{{ route('procedures.show', $item) }}">{{ $item->title }} →</a></li>
+                            <li style="margin-bottom:.6rem"><a href="{{ route('services.show', $item) }}">{{ $item->title }} →</a></li>
                         @endforeach
                     </ul>
-                    <a href="{{ route('procedures.index') }}" class="btn btn--ghost" style="margin-top:.5rem">All procedures</a>
+                    <a href="{{ route('services.index') }}" class="btn btn--outline" style="margin-top:.6rem;width:100%">All services</a>
                 </div>
             </aside>
         </div>

@@ -3,7 +3,9 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\SitemapController;
@@ -12,14 +14,23 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Static / about
-Route::get('/about', [PageController::class, 'about'])->name('about');
+// Meet Dr. Sujay / Philosophy of Care
+Route::get('/meet-dr-sujay', [PageController::class, 'about'])->name('about');
+Route::get('/philosophy-of-care', [PageController::class, 'philosophy'])->name('philosophy');
 
-// Procedures / services
-Route::get('/procedures', [ProcedureController::class, 'index'])->name('procedures.index');
-Route::get('/procedures/{procedure:slug}', [ProcedureController::class, 'show'])->name('procedures.show');
+// Services ("Comprehensive Cardiac Care")
+Route::get('/services', [ProcedureController::class, 'index'])->name('services.index');
+Route::get('/services/{procedure:slug}', [ProcedureController::class, 'show'])->name('services.show');
 
-// Blog
+// Heart Health Library — sections and the articles inside them
+Route::get('/heart-health-library', [LibraryController::class, 'index'])->name('library.index');
+Route::get('/heart-health-library/{section:slug}', [LibraryController::class, 'section'])->name('library.section');
+Route::get('/heart-health-library/{section:slug}/{article:slug}', [LibraryController::class, 'article'])->name('library.article');
+
+// FAQs
+Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
+
+// Blog ("Featured Blog & Research")
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
@@ -27,7 +38,7 @@ Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.sho
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-// Appointments
+// Appointments ("Request Consultation")
 Route::get('/appointment', [AppointmentController::class, 'create'])->name('appointment.create');
 Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 

@@ -1,91 +1,148 @@
 @extends('layouts.app')
 
+@section('description', 'Dr. Sujay J — Consultant Cardiologist & Pulmonologist. Compassionate, evidence-based care for your heart and lung health.')
+
 @section('content')
+
+    {{-- ── Hero ───────────────────────────────────────────── --}}
     <section class="hero">
         <div class="container hero__grid">
             <div>
-                <span class="hero__badge">🫀 Cardiac &amp; Cardiothoracic Surgeon</span>
-                <h1>Expert heart care you can trust</h1>
-                <p class="hero__lead">Dr Sujay J specialises in advanced cardiac surgery — coronary bypass, valve repair and replacement, and pediatric cardiac procedures — delivered with precision and genuine compassion.</p>
-                <div class="hero__cta">
-                    <a href="{{ route('appointment.create') }}" class="btn btn--primary">Book an Appointment</a>
-                    <a href="tel:{{ config('site.phone') }}" class="btn btn--ghost">Call {{ config('site.phone_display') }}</a>
+                <h1>Compassionate &amp; Expert<br>Care for Every <span class="accent">Heartbeat</span></h1>
+                <p class="hero__lead">Providing comprehensive, evidence-based and compassionate care for your heart and lung health.</p>
+
+                <div class="hero__points">
+                    <span class="hero__point"><x-icon name="heart-pulse" /> Personalized Care</span>
+                    <span class="hero__point"><x-icon name="check-circle" /> Advanced Diagnostics</span>
+                    <span class="hero__point"><x-icon name="users" /> Preventive Cardiology</span>
                 </div>
 
-                <div class="stats">
-                    <div class="stat"><strong>{{ $stats['years'] ?: '—' }}+</strong><span>Years of experience</span></div>
-                    <div class="stat"><strong>{{ $stats['surgeries'] ?: '—' }}+</strong><span>Surgeries performed</span></div>
-                    <div class="stat"><strong>24/7</strong><span>Emergency support</span></div>
+                <div class="hero__cta">
+                    <a href="{{ route('appointment.create') }}" class="btn btn--primary">Book an Appointment</a>
+                    <a href="{{ route('library.index') }}" class="btn btn--outline">Explore Heart Health Library</a>
                 </div>
             </div>
-            <div>
-                <div class="hero__photo hero__photo--placeholder">Surgeon photo</div>
+
+            <div class="hero__media">
+                <div class="hero__photo hero__photo--placeholder">Doctor photo</div>
             </div>
         </div>
     </section>
 
-    {{-- Procedures --}}
-    <section class="section">
-        <div class="container">
-            <div class="section__head">
-                <span class="eyebrow">What we treat</span>
-                <h2>Procedures &amp; Services</h2>
-                <p>Comprehensive surgical care across the full spectrum of heart conditions.</p>
-            </div>
+    {{-- ── Comprehensive Cardiac Care ──────────────────────── --}}
+    @if($services->isNotEmpty())
+        <section class="section">
+            <div class="container">
+                <div class="section__head" style="margin-bottom:1.75rem">
+                    <h2>Comprehensive Cardiac Care</h2>
+                </div>
 
-            @if($procedures->isEmpty())
-                <p style="text-align:center;color:var(--muted)">Procedures will be listed here soon.</p>
-            @else
-                <div class="grid grid--3">
-                    @foreach($procedures as $procedure)
-                        <a class="card" href="{{ route('procedures.show', $procedure) }}" style="text-decoration:none;color:inherit">
-                            <div class="card__body">
-                                <h3>{{ $procedure->title }}</h3>
-                                <p>{{ \Illuminate\Support\Str::limit($procedure->summary, 110) }}</p>
-                                <span class="card__more">Learn more →</span>
+                <div class="care-grid">
+                    @foreach($services as $service)
+                        <a class="care" href="{{ route('services.show', $service) }}">
+                            <span class="care__icon"><x-icon :name="$service->icon ?: 'heart-pulse'" /></span>
+                            <h3>{{ $service->title }}</h3>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- ── Heart Health Library ────────────────────────────── --}}
+    @if($sections->isNotEmpty())
+        <section class="section section--soft">
+            <div class="container">
+                <div class="section__head">
+                    <h2>Heart Health Library</h2>
+                    <p>Trusted information to help you understand, prevent and manage heart conditions.</p>
+                </div>
+
+                <div class="grid grid--6">
+                    @foreach($sections as $section)
+                        <a class="lib-card" href="{{ route('library.section', $section) }}">
+                            @if($section->image)
+                                <img class="lib-card__img" src="{{ asset('storage/'.$section->image) }}" alt="{{ $section->title }}" loading="lazy">
+                            @else
+                                <div class="lib-card__img lib-card__img--ph"><x-icon name="book" style="width:34px;height:34px" /></div>
+                            @endif
+                            <div class="lib-card__body">
+                                <h3>{{ $section->title }}</h3>
+                                <p>{{ \Illuminate\Support\Str::limit($section->description, 62) }}</p>
                             </div>
                         </a>
                     @endforeach
                 </div>
-                <p style="text-align:center;margin-top:2rem">
-                    <a href="{{ route('procedures.index') }}" class="btn btn--ghost">View all procedures</a>
-                </p>
-            @endif
-        </div>
-    </section>
+            </div>
+        </section>
+    @endif
 
-    {{-- Trust / why choose --}}
-    <section class="section section--soft">
+    {{-- ── Why choose Dr. Sujay J ──────────────────────────── --}}
+    <section class="section">
         <div class="container split">
             <div>
-                <span class="eyebrow">Why patients choose Dr Sujay</span>
-                <h2>Precision surgery, personal care</h2>
-                <p>Every patient receives a clear diagnosis, a treatment plan explained in plain language, and surgical care backed by years of specialised cardiac experience.</p>
-                <ul class="list-check">
-                    <li>Fellowship-trained cardiac &amp; cardiothoracic surgeon</li>
-                    <li>Experience across adult and pediatric cardiac surgery</li>
-                    <li>Minimally invasive options where clinically appropriate</li>
-                    <li>Transparent guidance from consultation to recovery</li>
-                </ul>
-                <a href="{{ route('about') }}" class="btn btn--primary">About Dr Sujay J</a>
+                <div class="doctor-photo doctor-photo--ph">Doctor at desk</div>
             </div>
             <div>
-                <div class="hero__photo hero__photo--placeholder">Clinic / portrait</div>
+                <span class="eyebrow">Why Choose Dr. Sujay J?</span>
+                <h2>Your Partner in Heart Health</h2>
+                <p>I am a Consultant {{ config('site.specialty') }} dedicated to providing personalized, compassionate and advanced care. My goal is to help you live a healthier, longer and better life.</p>
+
+                <ul class="list-check">
+                    <li>Extensive experience in cardiovascular care</li>
+                    <li>Evidence-based treatment &amp; latest technologies</li>
+                    <li>Focus on prevention, early diagnosis and long-term wellness</li>
+                </ul>
+
+                <a href="{{ route('about') }}" class="btn btn--primary">Know More About Me</a>
             </div>
         </div>
     </section>
 
-    {{-- Testimonials --}}
+    {{-- ── Featured Blog & Research ────────────────────────── --}}
+    @if($posts->isNotEmpty())
+        <section class="section section--soft">
+            <div class="container">
+                <div class="section__head">
+                    <h2>Featured Blog &amp; Research</h2>
+                </div>
+
+                <div class="grid grid--3">
+                    @foreach($posts->take(3) as $post)
+                        <a class="post-card" href="{{ route('blog.show', $post) }}">
+                            @if($post->featured_image)
+                                <img class="post-card__img" src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}" loading="lazy">
+                            @else
+                                <span class="post-card__img" style="display:grid;place-items:center;color:var(--navy-600)">
+                                    <x-icon name="heart-pulse" style="width:26px;height:26px" />
+                                </span>
+                            @endif
+                            <span>
+                                <h3>{{ \Illuminate\Support\Str::limit($post->title, 46) }}</h3>
+                                <p>{{ \Illuminate\Support\Str::limit($post->excerpt ?: strip_tags($post->body), 52) }}</p>
+                                <span class="stars">★★★★★</span>
+                            </span>
+                        </a>
+                    @endforeach
+                </div>
+
+                <p style="text-align:center;margin-top:2rem">
+                    <a href="{{ route('blog.index') }}" class="btn btn--outline">View all articles</a>
+                </p>
+            </div>
+        </section>
+    @endif
+
+    {{-- ── Testimonials ────────────────────────────────────── --}}
     @if($testimonials->isNotEmpty())
         <section class="section">
             <div class="container">
                 <div class="section__head">
-                    <span class="eyebrow">Patient stories</span>
-                    <h2>What our patients say</h2>
+                    <h2>What Our Patients Say</h2>
                 </div>
                 <div class="grid grid--3">
                     @foreach($testimonials as $testimonial)
-                        <figure class="quote">
+                        <figure class="quote" style="margin:0">
                             @if($testimonial->rating)
                                 <div class="stars">{{ str_repeat('★', $testimonial->rating) }}{{ str_repeat('☆', 5 - $testimonial->rating) }}</div>
                             @endif
@@ -98,30 +155,13 @@
         </section>
     @endif
 
-    {{-- Latest from blog --}}
-    @if($posts->isNotEmpty())
-        <section class="section section--soft">
-            <div class="container">
-                <div class="section__head">
-                    <span class="eyebrow">Heart health</span>
-                    <h2>From the blog</h2>
-                </div>
-                <div class="grid grid--3">
-                    @foreach($posts as $post)
-                        @include('blog.partials.card', ['post' => $post])
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-
-    {{-- CTA band --}}
+    {{-- ── CTA band ────────────────────────────────────────── --}}
     <section class="page-band" style="text-align:center">
         <div class="container">
-            <h1>Ready to take the next step?</h1>
-            <p style="margin:0 auto 1.5rem">Book a consultation with Dr Sujay J — or reach out on WhatsApp for a quick query.</p>
+            <h1 style="font-size:clamp(1.5rem,3vw,2.1rem)">Ready to take the next step?</h1>
+            <p style="margin:0 auto 1.5rem">Request a consultation with {{ config('site.name') }}, or reach out on WhatsApp for a quick query.</p>
             <div class="hero__cta" style="justify-content:center">
-                <a href="{{ route('appointment.create') }}" class="btn btn--light">Book an Appointment</a>
+                <a href="{{ route('appointment.create') }}" class="btn btn--light">Request Consultation</a>
                 <a href="https://wa.me/{{ config('site.whatsapp') }}" class="btn btn--whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
             </div>
         </div>

@@ -1,7 +1,7 @@
-# Dr Sujay J — Cardiac Surgeon Website
+# Dr. Sujay J — Cardiologist & Pulmonologist
 
-Public marketing site + blog engine + Filament admin dashboard for a cardiac /
-cardiothoracic surgeon.
+Public marketing site + Heart Health Library + blog engine + Filament admin
+dashboard for a consultant cardiologist & pulmonologist.
 
 **Production domain:** [drsujayj.in](https://drsujayj.in)
 
@@ -79,18 +79,42 @@ php artisan serve
 | Model | Table | Purpose |
 |-------|-------|---------|
 | `User` | `users` | Admin login (Filament panel access) |
+| `Procedure` | `procedures` | **Services** — the "Comprehensive Cardiac Care" strip (7 care areas) |
+| `LibrarySection` | `library_sections` | The 6 **Heart Health Library** cards |
+| `LibraryArticle` | `library_articles` | Topics uploaded *inside* a library section |
+| `Faq` | `faqs` | FAQ accordion (also emits `FAQPage` schema.org) |
 | `Category` | `categories` | Blog post categories |
 | `Tag` | `tags` | Blog post tags (many-to-many via `post_tag`) |
 | `Post` | `posts` | Blog articles (draft/published, scheduled publish, SEO meta) |
-| `Procedure` | `procedures` | Service/procedure pages (CABG, valve replacement, …) |
 | `Appointment` | `appointments` | Booking requests (status workflow + consent) |
 | `Testimonial` | `testimonials` | Patient stories (approval + stored consent file) |
 | `Enquiry` | `enquiries` | Contact form submissions (read/unread + consent) |
 | `Media` | `media` | Reusable uploaded files |
 | `Setting` | `settings` | Key/value store: SEO defaults, homepage stats, contact info |
 
-Slugs (`Post`, `Procedure`, `Category`, `Tag`) are auto-generated and unique via
-the `App\Models\Concerns\HasSlug` trait, and used as the route key.
+Slugs are auto-generated and unique via the `App\Models\Concerns\HasSlug` trait,
+and used as the route key.
+
+### Heart Health Library
+
+The homepage's six library cards are `LibrarySection` records. Each section holds
+many `LibraryArticle` records — the doctor adds these in the admin panel under
+**Heart Health Library → Sections → (edit a section) → Articles**, or via
+**Heart Health Library → All Articles**.
+
+Public routes:
+- `/heart-health-library` — all sections
+- `/heart-health-library/{section}` — a section + its articles
+- `/heart-health-library/{section}/{article}` — a single article
+
+The header dropdown lists sections and is cached for 6 hours; saving or deleting
+a section busts the cache automatically.
+
+### Public pages
+
+`/` · `/meet-dr-sujay` · `/philosophy-of-care` · `/services` · `/services/{slug}`
+· `/heart-health-library` (+ nested) · `/faqs` · `/blog` · `/blog/{slug}`
+· `/contact` · `/appointment` · `/sitemap.xml`
 
 Statuses are PHP enums in `app/Enums/` (`PostStatus`, `AppointmentStatus`) that
 implement Filament's `HasLabel` + `HasColor` for nicely rendered badges.

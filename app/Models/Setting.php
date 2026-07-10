@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 
 /**
  * Simple key/value store for site-wide settings: SEO defaults, homepage
- * stats (years of experience, surgeries performed), contact details, etc.
+ * stats (years of experience, patients treated), contact details, etc.
  * Values are JSON-cast so they can hold scalars, arrays, or objects.
  */
 class Setting extends Model
