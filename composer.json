@@ -2,8 +2,14 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "trivartatech/sujay",
     "type": "project",
-    "description": "Cardiac surgeon website — public site, blog engine, and Filament admin dashboard.",
-    "keywords": ["laravel", "filament", "medical", "cardiac-surgeon"],
+    "description": "Dr. Sujay J — cardiologist & pulmonologist website: public site, Heart Health Library, blog engine, and Filament admin dashboard.",
+    "keywords": [
+        "laravel",
+        "filament",
+        "medical",
+        "cardiology",
+        "pulmonology"
+    ],
     "license": "proprietary",
     "require": {
         "php": "^8.2",
@@ -35,7 +41,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

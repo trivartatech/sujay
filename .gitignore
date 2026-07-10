@@ -28,3 +28,7 @@ yarn-error.log
 /database/*.sqlite-shm
 /database/*.sqlite-wal
 /database/*.sqlite-journal
+
+# Filament publishes these on `php artisan filament:install --panels`
+/public/js/filament
+/public/css/filament
