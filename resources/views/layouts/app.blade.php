@@ -35,7 +35,7 @@
     @include('partials.footer')
 
     <a class="wa-float" href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <x-icon name="whatsapp" style="width:28px;height:28px" />
+        <x-ui-icon name="whatsapp" style="width:28px;height:28px" />
     </a>
 
     <script>

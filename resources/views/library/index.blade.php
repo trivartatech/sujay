@@ -23,7 +23,7 @@
                             @if($section->image)
                                 <img class="lib-card__img" src="{{ asset('storage/'.$section->image) }}" alt="{{ $section->title }}" loading="lazy">
                             @else
-                                <div class="lib-card__img lib-card__img--ph"><x-icon name="book" style="width:40px;height:40px" /></div>
+                                <div class="lib-card__img lib-card__img--ph"><x-ui-icon name="book" style="width:40px;height:40px" /></div>
                             @endif
                             <div class="lib-card__body">
                                 <h3>{{ $section->title }}</h3>

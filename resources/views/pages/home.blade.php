@@ -12,9 +12,9 @@
                 <p class="hero__lead">Providing comprehensive, evidence-based and compassionate care for your heart and lung health.</p>
 
                 <div class="hero__points">
-                    <span class="hero__point"><x-icon name="heart-pulse" /> Personalized Care</span>
-                    <span class="hero__point"><x-icon name="check-circle" /> Advanced Diagnostics</span>
-                    <span class="hero__point"><x-icon name="users" /> Preventive Cardiology</span>
+                    <span class="hero__point"><x-ui-icon name="heart-pulse" /> Personalized Care</span>
+                    <span class="hero__point"><x-ui-icon name="check-circle" /> Advanced Diagnostics</span>
+                    <span class="hero__point"><x-ui-icon name="users" /> Preventive Cardiology</span>
                 </div>
 
                 <div class="hero__cta">
@@ -40,7 +40,7 @@
                 <div class="care-grid">
                     @foreach($services as $service)
                         <a class="care" href="{{ route('services.show', $service) }}">
-                            <span class="care__icon"><x-icon :name="$service->icon ?: 'heart-pulse'" /></span>
+                            <span class="care__icon"><x-ui-icon :name="$service->icon ?: 'heart-pulse'" /></span>
                             <h3>{{ $service->title }}</h3>
                         </a>
                     @endforeach
@@ -64,7 +64,7 @@
                             @if($section->image)
                                 <img class="lib-card__img" src="{{ asset('storage/'.$section->image) }}" alt="{{ $section->title }}" loading="lazy">
                             @else
-                                <div class="lib-card__img lib-card__img--ph"><x-icon name="book" style="width:34px;height:34px" /></div>
+                                <div class="lib-card__img lib-card__img--ph"><x-ui-icon name="book" style="width:34px;height:34px" /></div>
                             @endif
                             <div class="lib-card__body">
                                 <h3>{{ $section->title }}</h3>
@@ -114,7 +114,7 @@
                                 <img class="post-card__img" src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}" loading="lazy">
                             @else
                                 <span class="post-card__img" style="display:grid;place-items:center;color:var(--navy-600)">
-                                    <x-icon name="heart-pulse" style="width:26px;height:26px" />
+                                    <x-ui-icon name="heart-pulse" style="width:26px;height:26px" />
                                 </span>
                             @endif
                             <span>

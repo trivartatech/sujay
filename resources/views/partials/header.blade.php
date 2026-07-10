@@ -1,7 +1,7 @@
 <header class="site-header">
     <div class="container nav">
         <a href="{{ route('home') }}" class="brand">
-            <x-icon name="heart-pulse" class="brand__mark" />
+            <x-ui-icon name="heart-pulse" class="brand__mark" />
             <span class="brand__text">
                 <span class="brand__name">{{ config('site.name') }}</span><br>
                 <span class="brand__role">{{ config('site.specialty') }}</span>
@@ -30,7 +30,7 @@
             <li><a href="{{ route('faqs') }}">FAQs</a></li>
             <li>
                 <a href="{{ route('appointment.create') }}" class="btn btn--primary">
-                    <x-icon name="calendar" style="width:16px;height:16px" />
+                    <x-ui-icon name="calendar" style="width:16px;height:16px" />
                     REQUEST CONSULTATION
                 </a>
             </li>

@@ -25,7 +25,7 @@
                             @endif
                             <div class="card__body">
                                 <span class="care__icon" style="margin:0 0 .8rem;width:40px;height:40px">
-                                    <x-icon :name="$procedure->icon ?: 'heart-pulse'" />
+                                    <x-ui-icon :name="$procedure->icon ?: 'heart-pulse'" />
                                 </span>
                                 <h3>{{ $procedure->title }}</h3>
                                 <p>{{ \Illuminate\Support\Str::limit($procedure->summary, 120) }}</p>

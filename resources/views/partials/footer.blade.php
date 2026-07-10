@@ -13,7 +13,7 @@
                     <div class="socials">
                         @foreach($socials as $network => $url)
                             <a href="{{ $url }}" target="_blank" rel="noopener" aria-label="{{ ucfirst($network) }}">
-                                <x-icon :name="$network" />
+                                <x-ui-icon :name="$network" />
                             </a>
                         @endforeach
                     </div>
@@ -47,11 +47,11 @@
                 <h4>Contact Us</h4>
                 <ul class="footer__links footer__contact">
                     @if(config('site.address'))
-                        <li><x-icon name="map-pin" /><span>{{ config('site.address') }}</span></li>
+                        <li><x-ui-icon name="map-pin" /><span>{{ config('site.address') }}</span></li>
                     @endif
-                    <li><x-icon name="phone" /><a href="tel:{{ config('site.phone') }}">{{ config('site.phone_display') }}</a></li>
-                    <li><x-icon name="mail" /><a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></li>
-                    <li><x-icon name="clock" /><span>{{ config('site.hours') }}</span></li>
+                    <li><x-ui-icon name="phone" /><a href="tel:{{ config('site.phone') }}">{{ config('site.phone_display') }}</a></li>
+                    <li><x-ui-icon name="mail" /><a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></li>
+                    <li><x-ui-icon name="clock" /><span>{{ config('site.hours') }}</span></li>
                 </ul>
             </div>
 
