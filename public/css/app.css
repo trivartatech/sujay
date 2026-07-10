@@ -77,8 +77,11 @@ p { margin: 0 0 1rem; }
 .brand__role { font-size: .62rem; font-weight: 600; color: var(--muted); letter-spacing: .13em; text-transform: uppercase; }
 .nav__toggle { display: none; background: none; border: 0; font-size: 1.6rem; color: var(--navy-900); cursor: pointer; line-height: 1; }
 .nav__links { display: flex; align-items: center; gap: 1.35rem; list-style: none; margin: 0; padding: 0; }
-.nav__links > li > a { color: var(--ink); font-weight: 500; font-size: .93rem; }
-.nav__links > li > a:hover { color: var(--navy-700); }
+/* :not(.btn) so the "Request Consultation" button keeps its own colours —
+   this selector would otherwise outrank .btn--primary on specificity. */
+.nav__links > li > a:not(.btn) { color: var(--ink); font-weight: 500; font-size: .93rem; }
+.nav__links > li > a:not(.btn):hover { color: var(--navy-700); }
+.nav__links > li > a.btn { font-size: .78rem; letter-spacing: .04em; padding: .7rem 1.1rem; }
 
 /* Dropdown */
 .has-drop { position: relative; }

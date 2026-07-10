@@ -6,6 +6,7 @@
 
     @include('partials.seo')
 
+    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     {{-- Physician schema on every page --}}
