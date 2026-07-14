@@ -98,14 +98,7 @@
         <div class="container">
             <div class="goal-card">
                 <div class="goal-card__icon">
-                    <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-                        <circle cx="33" cy="39" r="24" stroke="#ffffff" stroke-width="3.4"/>
-                        <circle cx="33" cy="39" r="15.5" stroke="#e23b4e" stroke-width="3.4"/>
-                        <circle cx="33" cy="39" r="7.5" fill="#e23b4e"/>
-                        <circle cx="33" cy="39" r="3" fill="#ffffff"/>
-                        <path d="M33 39 59 13" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
-                        <path d="M51 13h9v9" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="{{ $v('images/philosophy/goal-target.png') }}" alt="Target with arrow">
                 </div>
                 <div class="goal-card__text">
                     <h2>My Goal is Simple</h2>

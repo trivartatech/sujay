@@ -386,6 +386,7 @@ p { margin: 0 0 1rem; }
 
 .goal-card { background: var(--navy-900); border-radius: 16px; padding: 2.2rem 2.6rem; display: grid; grid-template-columns: 150px 1fr; gap: 2.2rem; align-items: center; position: relative; overflow: hidden; }
 .goal-card__icon svg { width: 118px; height: 118px; display: block; margin: 0 auto; }
+.goal-card__icon img { width: 100%; max-width: 130px; height: auto; display: block; margin: 0 auto; }
 .goal-card__text h2 { color: #fff; margin-bottom: .8rem; }
 .goal-card__text p { color: #cddcef; margin: 0; line-height: 1.7; max-width: 44rem; }
 .goal-card__quote { position: absolute; right: 2rem; bottom: .5rem; font-size: 5rem; line-height: 1; color: rgba(255,255,255,.14); font-family: Georgia, serif; }
