@@ -70,24 +70,30 @@
             document.querySelectorAll('.hero__ecg').forEach(function (el) { el.classList.add('ecg-draw'); });
             document.querySelectorAll('.commit-card__art img, .heart-divider svg, .philosophy-heart').forEach(function (el) { el.classList.add('beat'); });
 
-            // Scroll-based reveal (reliable everywhere; reveals what's in view, incl. on load)
+            // Scroll-based reveal — reliable in real browsers; uses timers (not
+            // rAF, which pauses in hidden tabs) for the initial passes.
             var pending = reveals.concat(Array.prototype.slice.call(document.querySelectorAll('.ecg-draw')));
-            function revealVisible() {
+            function pass() {
                 var vh = window.innerHeight || document.documentElement.clientHeight;
+                var canScroll = document.documentElement.scrollHeight > vh + 4;
                 pending = pending.filter(function (el) {
                     var r = el.getBoundingClientRect();
-                    if (r.top < vh * 0.92 && r.bottom > 0) { el.classList.add('in-view'); return false; }
+                    // reveal what's in view; on non-scrollable pages reveal all (no scroll will fire)
+                    if (!canScroll || (r.top < vh * 0.92 && r.bottom > 0)) { el.classList.add('in-view'); return false; }
                     return true;
                 });
             }
             var ticking = false;
-            function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { revealVisible(); ticking = false; }); } }
+            function onScroll() {
+                if (ticking) return; ticking = true;
+                (window.requestAnimationFrame || window.setTimeout)(function () { pass(); ticking = false; }, 16);
+            }
             window.addEventListener('scroll', onScroll, { passive: true });
             window.addEventListener('resize', onScroll);
-            requestAnimationFrame(revealVisible);   // initial pass (above-the-fold)
-            setTimeout(revealVisible, 400);          // safety net
-            // Absolute fallback: never leave anything hidden
-            setTimeout(function () { pending.forEach(function (el) { el.classList.add('in-view'); }); }, 2500);
+            window.addEventListener('load', pass);
+            setTimeout(pass, 100);
+            setTimeout(pass, 500);
+            setTimeout(pass, 1500);
         })();
     </script>
     @stack('scripts')
