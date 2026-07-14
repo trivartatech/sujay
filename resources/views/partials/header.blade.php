@@ -24,6 +24,7 @@
                 @endif
             </li>
 
+            <li><a href="{{ route('blog.index') }}">Blog</a></li>
             <li><a href="{{ route('faqs') }}">FAQs</a></li>
             <li>
                 <a href="{{ route('appointment.create') }}" class="btn btn--primary">

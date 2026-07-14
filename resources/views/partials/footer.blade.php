@@ -27,6 +27,7 @@
                     <li><a href="{{ route('about') }}">Meet Dr. Sujay</a></li>
                     <li><a href="{{ route('services.index') }}">Services</a></li>
                     <li><a href="{{ route('library.index') }}">Heart Health Library</a></li>
+                    <li><a href="{{ route('blog.index') }}">Blog</a></li>
                     <li><a href="{{ route('faqs') }}">FAQs</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
