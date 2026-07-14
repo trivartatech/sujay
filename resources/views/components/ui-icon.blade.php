@@ -93,6 +93,34 @@
         <svg viewBox="0 0 24 24" {{ $attributes }} fill="currentColor"><path d="M23 12s0-3.6-.5-5.3a2.7 2.7 0 0 0-1.9-1.9C18.9 4.3 12 4.3 12 4.3s-6.9 0-8.6.5a2.7 2.7 0 0 0-1.9 1.9C1 8.4 1 12 1 12s0 3.6.5 5.3a2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9C23 15.6 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3Z"/></svg>
         @break
 
+    @case('user')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg>
+        @break
+
+    @case('user-heart')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="9" cy="8" r="3.6"/><path d="M3.5 20v-1A5.5 5.5 0 0 1 9 13.5c.5 0 1 .07 1.5.2"/><path d="M17.6 21c1.7-1.2 3.4-2.6 3.4-4.5a1.9 1.9 0 0 0-3.4-1.2 1.9 1.9 0 0 0-3.4 1.2c0 1.9 1.7 3.3 3.4 4.5Z"/></svg>
+        @break
+
+    @case('hand-heart')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M12 8.7c1-1.5 3.5-1 3.5.9 0 1.5-1.8 2.7-3.5 3.8-1.7-1.1-3.5-2.3-3.5-3.8 0-1.9 2.5-2.4 3.5-.9Z"/><path d="M3.5 14.5c1.4-1 2.9-1 4.3 0l3 1.8a3 3 0 0 0 3 .1"/><path d="M20.5 13.5 16 17M3.5 14.5V19H7"/></svg>
+        @break
+
+    @case('target')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+        @break
+
+    @case('clipboard-check')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><rect x="5" y="5" width="14" height="16" rx="2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg>
+        @break
+
+    @case('institution')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M3 10 12 4l9 6"/><path d="M5 10v8M9.7 10v8M14.3 10v8M19 10v8"/><path d="M3.5 20h17"/></svg>
+        @break
+
+    @case('calendar-heart')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M12 14.6c.8-1 2.5-.6 2.5.6 0 1-1.2 1.8-2.5 2.6-1.3-.8-2.5-1.6-2.5-2.6 0-1.2 1.7-1.6 2.5-.6Z"/></svg>
+        @break
+
     @default
         <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="9"/></svg>
 @endswitch
