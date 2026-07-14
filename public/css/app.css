@@ -343,6 +343,48 @@ p { margin: 0 0 1rem; }
 .cta-strip__lead p { margin: 0; color: var(--muted); font-size: .9rem; }
 .cta-strip__actions { display: flex; gap: .7rem; flex-wrap: wrap; }
 
+/* ── Philosophy of Care page ─────────────────────────────── */
+.phil-underline { display: block; width: 60px; height: 4px; background: var(--red-600); border-radius: 2px; margin: .3rem 0 1.4rem; }
+.phil-underline--sm { margin: 0 0 .9rem; }
+
+.phil-hero { background: linear-gradient(180deg, #eef4fb, #e6eef8); }
+.phil-hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; padding: 2rem 0 2.5rem; }
+.phil-hero__title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; margin: .6rem 0 0; }
+.phil-hero__title .navy { color: var(--navy-900); }
+.phil-hero__title .red { color: var(--red-600); }
+.phil-hero__quote { border: 0; margin: 0; padding: 0; font-size: clamp(1.05rem, 2.2vw, 1.35rem); font-weight: 700; color: var(--navy-900); line-height: 1.7; position: relative; }
+.phil-hero__quote .q { color: var(--red-600); font-size: 1.6em; line-height: 0; vertical-align: -0.35em; font-family: Georgia, serif; }
+.phil-hero__quote .q--open { margin-right: .15rem; }
+.phil-hero__art { text-align: center; }
+.phil-hero__art img { width: 100%; max-width: 340px; }
+
+.heart-divider { display: flex; align-items: center; justify-content: center; gap: .8rem; margin: 1.4rem 0 0; }
+.heart-divider span { width: 60px; height: 2px; background: var(--red-600); opacity: .5; }
+
+.value-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
+.value-card { text-align: center; padding: 1.2rem 1rem; border-left: 1px solid var(--line); }
+.value-card:first-child { border-left: 0; }
+.value-card__icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--navy-800); display: grid; place-items: center; }
+.value-card__icon svg { width: 100%; height: 100%; }
+.value-card h3 { font-size: 1rem; color: var(--navy-900); margin-bottom: .6rem; min-height: 2.4em; }
+.value-card p { font-size: .8rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+.commit-card { background: var(--bg-soft); border-radius: 16px; padding: 2.2rem 2.6rem; display: grid; grid-template-columns: 240px 1fr; gap: 2.4rem; align-items: center; position: relative; overflow: hidden; }
+.commit-card::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: repeating-linear-gradient(90deg, #c9d6e6 0 14px, transparent 14px 26px); opacity: .5; }
+.commit-card__art { text-align: center; position: relative; z-index: 1; }
+.commit-card__art img { width: 100%; max-width: 180px; }
+.commit-card__text { position: relative; z-index: 1; }
+.commit-card__text h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+.commit-card__text p { color: var(--muted); margin: 0; line-height: 1.7; }
+
+.goal-card { background: var(--navy-900); border-radius: 16px; padding: 2.2rem 2.6rem; display: grid; grid-template-columns: 150px 1fr; gap: 2.2rem; align-items: center; position: relative; overflow: hidden; }
+.goal-card__icon svg { width: 118px; height: 118px; display: block; margin: 0 auto; }
+.goal-card__text h2 { color: #fff; margin-bottom: .8rem; }
+.goal-card__text p { color: #cddcef; margin: 0; line-height: 1.7; max-width: 44rem; }
+.goal-card__quote { position: absolute; right: 2rem; bottom: .5rem; font-size: 5rem; line-height: 1; color: rgba(255,255,255,.14); font-family: Georgia, serif; }
+
+.cta-strip__icon--img img { width: 100%; height: 100%; object-fit: contain; }
+
 /* Wide rich-text content must scroll in its own box, never the page */
 .prose table { display: block; overflow-x: auto; white-space: nowrap; }
 .prose pre { overflow-x: auto; }
@@ -377,6 +419,14 @@ p { margin: 0 0 1rem; }
     .philosophy-card { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem; }
     .philosophy-card__art img { max-width: 150px; }
     .philosophy-card__text { border-left: 0; padding-left: 0; }
+    .phil-hero__grid { grid-template-columns: 1fr; }
+    .phil-hero__art { order: -1; }
+    .phil-hero__art img { max-width: 240px; }
+    .value-grid { grid-template-columns: repeat(3, 1fr); }
+    .value-card:nth-child(4) { border-left: 0; }
+    .commit-card, .goal-card { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem; text-align: center; }
+    .commit-card::before { display: none; }
+    .goal-card__text, .commit-card__text { text-align: left; }
 }
 
 @media (max-width: 640px) {
@@ -397,4 +447,8 @@ p { margin: 0 0 1rem; }
     .edu-timeline::before { display: none; }
     .cta-strip { flex-direction: column; align-items: flex-start; }
     .cta-strip__actions .btn { width: 100%; }
+    .value-grid { grid-template-columns: repeat(2, 1fr); }
+    .value-card { border-left: 0; }
+    .value-card h3 { min-height: 0; }
+    .goal-card__quote { display: none; }
 }

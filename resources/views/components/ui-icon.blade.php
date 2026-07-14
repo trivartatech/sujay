@@ -121,6 +121,14 @@
         <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M12 14.6c.8-1 2.5-.6 2.5.6 0 1-1.2 1.8-2.5 2.6-1.3-.8-2.5-1.6-2.5-2.6 0-1.2 1.7-1.6 2.5-.6Z"/></svg>
         @break
 
+    @case('ear')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 9.5a3.5 3.5 0 0 1-7 0"/><path d="M8.5 8.7a3.5 3.5 0 1 1 6.6 1.6c-.6 1.2-2.1 1.6-2.1 3.2"/></svg>
+        @break
+
+    @case('chat')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.4A8 8 0 1 1 20 11.5Z"/><circle cx="8.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+        @break
+
     @default
         <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="9"/></svg>
 @endswitch
