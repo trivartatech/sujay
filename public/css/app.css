@@ -483,4 +483,6 @@ p { margin: 0 0 1rem; }
     .value-card { border-left: 0; }
     .value-card h3 { min-height: 0; }
     .goal-card__quote { display: none; }
+    .hero__heart { padding: .5rem; }
+    .hero__heart img { max-width: 210px; }
 }
