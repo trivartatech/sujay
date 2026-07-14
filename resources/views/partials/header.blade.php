@@ -1,7 +1,7 @@
 <header class="site-header">
     <div class="container nav">
         <a href="{{ route('home') }}" class="brand">
-            <x-ui-icon name="heart-pulse" class="brand__mark" />
+            <img src="{{ asset('images/logo-mark.png') }}?v={{ @filemtime(public_path('images/logo-mark.png')) ?: '1' }}" alt="{{ config('site.name') }} logo" class="brand__mark">
             <span class="brand__text">
                 <span class="brand__name">{{ config('site.name') }}</span><br>
                 <span class="brand__role">{{ config('site.specialty') }}</span>
