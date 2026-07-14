@@ -347,8 +347,13 @@ p { margin: 0 0 1rem; }
 .phil-underline { display: block; width: 60px; height: 4px; background: var(--red-600); border-radius: 2px; margin: .3rem 0 1.4rem; }
 .phil-underline--sm { margin: 0 0 .9rem; }
 
-.phil-hero { background: linear-gradient(180deg, #eef4fb, #e6eef8); }
-.phil-hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; padding: 2rem 0 2.5rem; }
+.phil-hero { position: relative; background: linear-gradient(115deg, #eef4fb 0%, #ffffff 52%); overflow: hidden; }
+.phil-hero .container { position: relative; z-index: 2; }
+.phil-hero__intro { max-width: 520px; padding: 2.5rem 0 3.2rem; }
+.phil-hero__media { position: absolute; top: 0; right: 0; bottom: 0; width: 58%; z-index: 1; }
+.phil-hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center right;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 34%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 34%); }
 .phil-hero__title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; margin: .6rem 0 0; }
 .phil-hero__title .navy { color: var(--navy-900); }
 .phil-hero__title .red { color: var(--red-600); }
@@ -421,9 +426,11 @@ p { margin: 0 0 1rem; }
     .philosophy-card { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem; }
     .philosophy-card__art img { max-width: 150px; }
     .philosophy-card__text { border-left: 0; padding-left: 0; }
-    .phil-hero__grid { grid-template-columns: 1fr; }
-    .phil-hero__art { order: -1; }
-    .phil-hero__art img { max-width: 240px; }
+    .phil-hero__intro { max-width: none; padding: 1.5rem 0 2rem; }
+    .phil-hero__media { position: static; width: 100%; }
+    .phil-hero__media img { height: auto; aspect-ratio: 16/10;
+        -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); }
     .value-grid { grid-template-columns: repeat(3, 1fr); }
     .value-card:nth-child(4) { border-left: 0; }
     .commit-card, .goal-card { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem; text-align: center; }

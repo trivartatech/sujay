@@ -9,8 +9,11 @@
 
     {{-- ── Hero ───────────────────────────────────────────── --}}
     <section class="phil-hero">
-        <div class="container phil-hero__grid">
-            <div>
+        <div class="phil-hero__media">
+            <img src="{{ $v('images/philosophy/hero-photo.jpg') }}" alt="Doctor's hands holding a heart with a pulse line">
+        </div>
+        <div class="container">
+            <div class="phil-hero__intro">
                 <div class="breadcrumb" style="color:var(--muted)">
                     <a href="{{ route('home') }}">Home</a> <span style="color:var(--line)">›</span> Philosophy of Care
                 </div>
@@ -22,9 +25,6 @@
                     Good cardiology begins by listening.
                     <span class="q q--close">&rdquo;</span>
                 </blockquote>
-            </div>
-            <div class="phil-hero__photo">
-                <img src="{{ $v('images/philosophy/hero-photo.jpg') }}" alt="Doctor's hands holding a heart with a pulse line">
             </div>
         </div>
     </section>
