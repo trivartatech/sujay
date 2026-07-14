@@ -89,8 +89,10 @@ p { margin: 0 0 1rem; }
 /* Dropdown */
 .has-drop { position: relative; }
 .has-drop > a::after { content: " ▾"; font-size: .7em; color: var(--muted); }
-.drop { position: absolute; top: 100%; left: 0; min-width: 240px; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-lg); padding: .4rem; list-style: none; margin: .4rem 0 0; display: none; }
-.has-drop:hover .drop, .has-drop:focus-within .drop { display: block; }
+/* transparent bridge over the visual gap so hover isn't lost mid-move */
+.has-drop::after { content: ""; position: absolute; left: 0; top: 100%; width: 100%; height: 14px; }
+.drop { position: absolute; top: 100%; left: 0; min-width: 240px; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-lg); padding: .4rem; list-style: none; margin: 10px 0 0; z-index: 60; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .16s ease .12s, transform .16s ease .12s, visibility 0s linear .32s; }
+.has-drop:hover .drop, .has-drop:focus-within .drop { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .16s ease, transform .16s ease, visibility 0s; }
 .drop li a { display: block; padding: .5rem .7rem; border-radius: 6px; font-size: .9rem; color: var(--ink); }
 .drop li a:hover { background: var(--navy-50); text-decoration: none; }
 
@@ -293,7 +295,8 @@ p { margin: 0 0 1rem; }
     .nav__links > li { padding: .6rem 0; border-bottom: 1px solid var(--line); }
     .nav__links > li:last-child { border-bottom: 0; padding-top: .85rem; }
     .nav__links > li > a.btn { width: 100%; }
-    .drop { position: static; display: block; border: 0; box-shadow: none; padding: .35rem 0 0 .9rem; min-width: 0; margin: 0; }
+    .has-drop::after { display: none; }
+    .drop { position: static; opacity: 1; visibility: visible; transform: none; border: 0; box-shadow: none; padding: .35rem 0 0 .9rem; min-width: 0; margin: 0; transition: none; }
 }
 
 @media (max-width: 900px) {
