@@ -74,8 +74,11 @@ class LibrarySection extends Model
         }
 
         $default = 'images/library/'.$this->slug.'.jpg';
+        $path = public_path($default);
 
-        return is_file(public_path($default)) ? asset($default) : null;
+        // Append the file mtime so updated illustrations bypass the browser's
+        // long-lived cache (Nginx serves these with `expires max`).
+        return is_file($path) ? asset($default).'?v='.filemtime($path) : null;
     }
 
     /** True when the card image already has the title baked in (bundled default). */
