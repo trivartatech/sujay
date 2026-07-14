@@ -24,7 +24,9 @@
             </div>
 
             <div class="hero__media">
-                <div class="hero__photo hero__photo--placeholder">Doctor photo</div>
+                <div class="hero__heart">
+                    <img src="{{ asset('images/philosophy-heart.png') }}?v={{ @filemtime(public_path('images/philosophy-heart.png')) ?: '1' }}" alt="Anatomical heart" class="beat">
+                </div>
             </div>
         </div>
 
