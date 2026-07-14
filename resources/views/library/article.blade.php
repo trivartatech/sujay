@@ -30,7 +30,7 @@
     </section>
 
     <section class="section">
-        <div class="container split split--start">
+        <div class="container article">
             <article class="prose" style="max-width:none">
                 @if($article->image)
                     <img src="{{ asset('storage/'.$article->image) }}" alt="{{ $article->title }}">
@@ -38,27 +38,39 @@
 
                 {!! $article->body !!}
 
-                <div class="quote" style="margin-top:2rem;border-left-color:var(--navy-700)">
+                <div class="quote" style="margin-top:2rem">
                     <strong>Have a question about your heart or lung health?</strong>
                     <p style="font-style:normal;margin:.6rem 0 0">
                         <a href="{{ route('appointment.create') }}" class="btn btn--primary">Request Consultation</a>
                     </p>
                 </div>
-            </article>
 
-            <aside>
-                @if($related->isNotEmpty())
-                    <div class="form">
-                        <h3 style="margin-top:0">More in {{ $section->title }}</h3>
-                        <ul class="footer__links" style="list-style:none;padding:0">
-                            @foreach($related as $item)
-                                <li style="margin-bottom:.6rem"><a href="{{ route('library.article', [$section, $item]) }}">{{ $item->title }} →</a></li>
-                            @endforeach
-                        </ul>
-                        <a href="{{ route('library.section', $section) }}" class="btn btn--outline" style="margin-top:.6rem;width:100%">Back to {{ $section->title }}</a>
-                    </div>
-                @endif
-            </aside>
+                <p style="margin-top:1.5rem">
+                    <a href="{{ route('library.section', $section) }}" class="btn btn--outline">← Back to {{ $section->title }}</a>
+                </p>
+            </article>
         </div>
     </section>
+
+    @if($related->isNotEmpty())
+        <section class="section section--soft">
+            <div class="container">
+                <div class="section__head"><h2>More in {{ $section->title }}</h2></div>
+                <div class="grid grid--3">
+                    @foreach($related as $item)
+                        <a class="card" href="{{ route('library.article', [$section, $item]) }}">
+                            @if($item->image)
+                                <img class="card__img" src="{{ asset('storage/'.$item->image) }}" alt="{{ $item->title }}" loading="lazy">
+                            @endif
+                            <div class="card__body">
+                                <h3>{{ $item->title }}</h3>
+                                <p>{{ \Illuminate\Support\Str::limit($item->excerpt ?: strip_tags($item->body), 100) }}</p>
+                                <span class="card__more">Read more →</span>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection

@@ -42,8 +42,8 @@
     </section>
 
     <section class="section">
-        <div class="container split">
-            <article class="prose">
+        <div class="container article">
+            <article class="prose" style="max-width:none">
                 @if($post->featured_image)
                     <img src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}">
                 @endif
@@ -58,26 +58,26 @@
                     </div>
                 @endif
 
-                <div class="quote" style="margin-top:2rem;border-left-color:var(--teal-600)">
+                <div class="quote" style="margin-top:2rem">
                     <strong>Have a question about your heart health?</strong>
                     <p style="font-style:normal;margin:.5rem 0 0">
                         <a href="{{ route('appointment.create') }}" class="btn btn--primary">Book a Consultation</a>
                     </p>
                 </div>
             </article>
-
-            <aside>
-                @if($related->isNotEmpty())
-                    <div class="form">
-                        <h3 style="margin-top:0">Related articles</h3>
-                        <ul class="footer__links" style="list-style:none;padding:0">
-                            @foreach($related as $item)
-                                <li style="margin-bottom:.6rem"><a href="{{ route('blog.show', $item) }}">{{ $item->title }} →</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </aside>
         </div>
     </section>
+
+    @if($related->isNotEmpty())
+        <section class="section section--soft">
+            <div class="container">
+                <div class="section__head"><h2>Related Articles</h2></div>
+                <div class="grid grid--3">
+                    @foreach($related as $item)
+                        @include('blog.partials.card', ['post' => $item])
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection

@@ -39,6 +39,7 @@ p { margin: 0 0 1rem; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
 .container--wide { max-width: 1340px; }
+.container.article { max-width: 840px; }
 .section { padding: 3.5rem 0; }
 .section--soft { background: var(--bg-soft); }
 .section__head { max-width: 680px; margin: 0 auto 2.25rem; text-align: center; }
