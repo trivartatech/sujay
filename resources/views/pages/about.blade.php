@@ -34,12 +34,23 @@
                 <p>Dr. Sujay J is a Consultant Cardiologist &amp; Pulmonologist dedicated to providing personalized, compassionate and advanced care. His practice spans preventive cardiology, coronary artery disease, heart failure management, arrhythmia care, valvular heart disease, interventional cardiology, and pulmonary care.</p>
                 <p>Patients value his calm, thorough approach — from the first consultation through diagnosis, treatment and follow-up, every step is explained in plain language so families can make confident decisions.</p>
 
-                <h2>Qualifications</h2>
-                <ul class="list-check">
-                    <li>MBBS</li>
-                    <li>MD — General Medicine</li>
-                    <li>DM — Cardiology</li>
-                    <li>Fellowship in Interventional Cardiology</li>
+                <h2>Education &amp; Qualifications</h2>
+                <ul class="edu">
+                    <li>
+                        <div class="edu__deg">DM — Cardiology</div>
+                        <div class="edu__inst">Kasturba Medical College, MAHE, Manipal</div>
+                        <div class="edu__yr">2017 – 2020</div>
+                    </li>
+                    <li>
+                        <div class="edu__deg">MD — Pulmonary Medicine</div>
+                        <div class="edu__inst">Jawaharlal Nehru Medical College, KLE University, Belagavi</div>
+                        <div class="edu__yr">2014 – 2017</div>
+                    </li>
+                    <li>
+                        <div class="edu__deg">MBBS</div>
+                        <div class="edu__inst">JJM Medical College, Davangere (RGUHS)</div>
+                        <div class="edu__yr">2007 – 2013</div>
+                    </li>
                 </ul>
 
                 <h2>Areas of expertise</h2>

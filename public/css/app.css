@@ -190,6 +190,15 @@ p { margin: 0 0 1rem; }
 .prose table { width: 100%; border-collapse: collapse; margin: 1.4rem 0; font-size: .95rem; }
 .prose th, .prose td { border: 1px solid var(--line); padding: .55rem .75rem; text-align: left; vertical-align: top; }
 .prose th { background: var(--bg-soft); font-weight: 700; color: var(--navy-900); }
+/* Education / qualifications timeline */
+.edu { list-style: none; padding: 0; margin: 1.3rem 0; }
+.edu li { position: relative; padding: 0 0 1.3rem 1.7rem; border-left: 2px solid var(--line); }
+.edu li:last-child { padding-bottom: 0; border-left-color: transparent; }
+.edu li::before { content: ""; position: absolute; left: -8px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--red-600); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--line); }
+.edu__deg { font-weight: 700; color: var(--navy-900); font-size: 1.06rem; }
+.edu__inst { color: var(--ink); font-size: .95rem; }
+.edu__yr { color: var(--muted); font-size: .85rem; font-weight: 600; letter-spacing: .02em; margin-top: .1rem; }
+
 .list-check { list-style: none; padding: 0; margin: 1.2rem 0; }
 .list-check li { padding-left: 2rem; position: relative; margin-bottom: .7rem; color: var(--ink); font-size: .95rem; }
 .list-check li::before { content: "✓"; position: absolute; left: 0; top: -1px; width: 20px; height: 20px; border: 1.5px solid var(--navy-700); border-radius: 50%; color: var(--navy-700); font-size: .72rem; font-weight: 700; display: grid; place-items: center; }
