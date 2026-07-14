@@ -1,7 +1,8 @@
 <header class="site-header">
     <div class="container nav">
         <a href="{{ route('home') }}" class="brand">
-            <img src="{{ asset('images/logo.png') }}?v={{ @filemtime(public_path('images/logo.png')) ?: '1' }}" alt="{{ config('site.name') }} — {{ config('site.specialty') }}" class="brand__logo">
+            <img src="{{ asset('images/logo-mark.png') }}?v={{ @filemtime(public_path('images/logo-mark.png')) ?: '1' }}" alt="" class="brand__mark">
+            <img src="{{ asset('images/logo-text.png') }}?v={{ @filemtime(public_path('images/logo-text.png')) ?: '1' }}" alt="{{ config('site.name') }} — {{ config('site.specialty') }}" class="brand__wordmark">
         </a>
 
         <button class="nav__toggle" aria-label="Toggle menu">&#9776;</button>
