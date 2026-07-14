@@ -110,7 +110,9 @@ p { margin: 0 0 1rem; }
 .hero__ecg svg { width: 100%; height: 100%; display: block; }
 
 /* Care areas icon strip */
-.care-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: .5rem; }
+/* auto-fit so the row always fills evenly — empty tracks collapse, so 6 or
+   7 (or any count) services spread across the full width with no gap. */
+.care-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: .5rem; }
 .care { text-align: center; padding: 1.2rem .5rem; border-radius: 10px; color: inherit; transition: .16s ease; border: 1px solid transparent; }
 .care:hover { text-decoration: none; background: #fff; border-color: var(--line); box-shadow: var(--shadow); transform: translateY(-2px); }
 .care__icon { width: 46px; height: 46px; margin: 0 auto .7rem; color: var(--navy-800); }
