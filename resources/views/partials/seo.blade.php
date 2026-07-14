@@ -1,8 +1,11 @@
 @php
+    // yieldContent returns the section content already HTML-escaped (Blade's
+    // inline @section escapes it), so decode first to avoid double-encoding
+    // (e.g. "&" becoming "&amp;amp;") when {{ }} escapes again below.
     $siteName = config('site.name').' — '.config('site.specialty');
-    $t = trim($__env->yieldContent('title'));
+    $t = trim(html_entity_decode($__env->yieldContent('title'), ENT_QUOTES));
     $pageTitle = $t !== '' ? $t.' — '.config('site.name') : $siteName;
-    $d = trim($__env->yieldContent('description'));
+    $d = trim(html_entity_decode($__env->yieldContent('description'), ENT_QUOTES));
     $desc = $d !== '' ? $d : 'Consultant Cardiologist & Pulmonologist providing compassionate, evidence-based care for your heart and lung health.';
 @endphp
 <title>{{ $pageTitle }}</title>
