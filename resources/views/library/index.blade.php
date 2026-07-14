@@ -19,20 +19,29 @@
             @else
                 <div class="grid grid--3">
                     @foreach($sections as $section)
-                        <a class="lib-card" href="{{ route('library.section', $section) }}">
-                            @if($section->image)
-                                <img class="lib-card__img" src="{{ asset('storage/'.$section->image) }}" alt="{{ $section->title }}" loading="lazy">
-                            @else
+                        @if($section->card_image_url)
+                            <a class="lib-tile" href="{{ route('library.section', $section) }}">
+                                <img class="lib-tile__img" src="{{ $section->card_image_url }}" alt="{{ $section->title }}" loading="lazy">
+                                <div class="lib-tile__cap">
+                                    @unless($section->image_has_title)<h3>{{ $section->title }}</h3>@endunless
+                                    <p>{{ $section->description }}</p>
+                                    @if($section->articles_count)
+                                        <p style="margin-top:.5rem"><span class="tag">{{ $section->articles_count }} {{ \Illuminate\Support\Str::plural('article', $section->articles_count) }}</span></p>
+                                    @endif
+                                </div>
+                            </a>
+                        @else
+                            <a class="lib-card" href="{{ route('library.section', $section) }}">
                                 <div class="lib-card__img lib-card__img--ph"><x-ui-icon name="book" style="width:40px;height:40px" /></div>
-                            @endif
-                            <div class="lib-card__body">
-                                <h3>{{ $section->title }}</h3>
-                                <p>{{ $section->description }}</p>
-                                @if($section->articles_count)
-                                    <p style="margin-top:.6rem"><span class="tag">{{ $section->articles_count }} {{ \Illuminate\Support\Str::plural('article', $section->articles_count) }}</span></p>
-                                @endif
-                            </div>
-                        </a>
+                                <div class="lib-card__body">
+                                    <h3>{{ $section->title }}</h3>
+                                    <p>{{ $section->description }}</p>
+                                    @if($section->articles_count)
+                                        <p style="margin-top:.6rem"><span class="tag">{{ $section->articles_count }} {{ \Illuminate\Support\Str::plural('article', $section->articles_count) }}</span></p>
+                                    @endif
+                                </div>
+                            </a>
+                        @endif
                     @endforeach
                 </div>
             @endif

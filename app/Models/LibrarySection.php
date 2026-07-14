@@ -63,6 +63,28 @@ class LibrarySection extends Model
     }
 
     /**
+     * Card image for the homepage / library grid. An admin-uploaded image wins;
+     * otherwise fall back to the bundled default illustration shipped at
+     * public/images/library/{slug}.jpg (these already include the section title).
+     */
+    public function getCardImageUrlAttribute(): ?string
+    {
+        if ($this->image) {
+            return asset('storage/'.$this->image);
+        }
+
+        $default = 'images/library/'.$this->slug.'.jpg';
+
+        return is_file(public_path($default)) ? asset($default) : null;
+    }
+
+    /** True when the card image already has the title baked in (bundled default). */
+    public function getImageHasTitleAttribute(): bool
+    {
+        return ! $this->image && $this->card_image_url !== null;
+    }
+
+    /**
      * @param  Builder<LibrarySection>  $query
      */
     public function scopePublished(Builder $query): void

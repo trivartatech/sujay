@@ -58,19 +58,25 @@
                     <p>Trusted information to help you understand, prevent and manage heart conditions.</p>
                 </div>
 
-                <div class="grid grid--6">
+                <div class="grid grid--3">
                     @foreach($sections as $section)
-                        <a class="lib-card" href="{{ route('library.section', $section) }}">
-                            @if($section->image)
-                                <img class="lib-card__img" src="{{ asset('storage/'.$section->image) }}" alt="{{ $section->title }}" loading="lazy">
-                            @else
+                        @if($section->card_image_url)
+                            <a class="lib-tile" href="{{ route('library.section', $section) }}">
+                                <img class="lib-tile__img" src="{{ $section->card_image_url }}" alt="{{ $section->title }}" loading="lazy">
+                                <div class="lib-tile__cap">
+                                    @unless($section->image_has_title)<h3>{{ $section->title }}</h3>@endunless
+                                    <p>{{ \Illuminate\Support\Str::limit($section->description, 70) }}</p>
+                                </div>
+                            </a>
+                        @else
+                            <a class="lib-card" href="{{ route('library.section', $section) }}">
                                 <div class="lib-card__img lib-card__img--ph"><x-ui-icon name="book" style="width:34px;height:34px" /></div>
-                            @endif
-                            <div class="lib-card__body">
-                                <h3>{{ $section->title }}</h3>
-                                <p>{{ \Illuminate\Support\Str::limit($section->description, 62) }}</p>
-                            </div>
-                        </a>
+                                <div class="lib-card__body">
+                                    <h3>{{ $section->title }}</h3>
+                                    <p>{{ \Illuminate\Support\Str::limit($section->description, 62) }}</p>
+                                </div>
+                            </a>
+                        @endif
                     @endforeach
                 </div>
             </div>

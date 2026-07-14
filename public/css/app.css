@@ -128,6 +128,16 @@ p { margin: 0 0 1rem; }
 .lib-card__body h3 { font-size: 1rem; margin-bottom: .35rem; }
 .lib-card__body p { color: var(--muted); font-size: .84rem; margin: 0; }
 
+/* Image tile — used when the section has a card image (the bundled
+   illustrations already include a rounded card + title, so no extra chrome). */
+.lib-tile { display: block; color: inherit; transition: .18s ease; }
+.lib-tile:hover { text-decoration: none; transform: translateY(-4px); }
+.lib-tile:hover .lib-tile__img { box-shadow: var(--shadow-lg); }
+.lib-tile__img { width: 100%; aspect-ratio: 1 / 0.72; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; transition: .18s ease; }
+.lib-tile__cap { text-align: center; padding: .7rem .4rem 0; }
+.lib-tile__cap h3 { font-size: 1rem; margin: 0 0 .2rem; }
+.lib-tile__cap p { color: var(--muted); font-size: .84rem; margin: 0; }
+
 /* Generic card (blog / services) */
 .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: .18s ease; display: flex; flex-direction: column; color: inherit; }
 .card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: var(--shadow-lg); }
