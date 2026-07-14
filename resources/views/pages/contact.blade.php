@@ -21,8 +21,15 @@
                     <li><strong>Phone:</strong> <a href="tel:{{ config('site.phone') }}">{{ config('site.phone_display') }}</a></li>
                     <li><strong>WhatsApp:</strong> <a href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener">{{ config('site.phone_display') }}</a></li>
                     <li><strong>Email:</strong> <a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></li>
+                    <li><strong>Timing:</strong> {{ config('site.hours') }}</li>
                     @if(config('site.address'))
-                        <li><strong>Address:</strong> {{ config('site.address') }}</li>
+                        <li><strong>Address:</strong>
+                            @if(config('site.map_url'))
+                                <a href="{{ config('site.map_url') }}" target="_blank" rel="noopener">{{ config('site.address') }}</a>
+                            @else
+                                {{ config('site.address') }}
+                            @endif
+                        </li>
                     @endif
                 </ul>
 

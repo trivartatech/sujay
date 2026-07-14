@@ -22,12 +22,13 @@ return [
     // wa.me target — country code + number, digits only
     'whatsapp' => env('CLINIC_WHATSAPP', '917259975826'),
 
-    'email' => env('CLINIC_EMAIL', 'contact@drsujayj.in'),
-    'address' => env('CLINIC_ADDRESS', ''),
-    'hours' => env('CLINIC_HOURS', 'Mon – Sat, 9:00 AM – 6:00 PM (Sunday Closed)'),
+    'email' => env('CLINIC_EMAIL', 'drsujaycardio@gmail.com'),
+    'address' => env('CLINIC_ADDRESS', 'Apollo Hospitals – Sarjapur Road, Bengaluru'),
+    'map_url' => env('CLINIC_MAP_URL', 'https://maps.app.goo.gl/JSN6rpwCVkHuu4wAA?g_st=iw'),
+    'hours' => env('CLINIC_HOURS', '10:00 AM – 5:00 PM'),
 
     // Where appointment/enquiry notifications are delivered
-    'notification_email' => env('ADMIN_NOTIFICATION_EMAIL', 'admin@drsujayj.in'),
+    'notification_email' => env('ADMIN_NOTIFICATION_EMAIL', 'drsujaycardio@gmail.com'),
 
     'social' => [
         'facebook' => env('SOCIAL_FACEBOOK', ''),

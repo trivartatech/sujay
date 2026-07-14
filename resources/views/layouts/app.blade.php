@@ -6,8 +6,9 @@
 
     @include('partials.seo')
 
-    <link rel="icon" href="{{ asset('favicon.png') }}?v={{ @filemtime(public_path('favicon.png')) ?: '1' }}" sizes="64x64" type="image/png">
-    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('favicon.png') }}?v={{ @filemtime(public_path('favicon.png')) ?: '1' }}" sizes="128x128" type="image/png">
+    <link rel="icon" href="{{ asset('favicon-32.png') }}?v={{ @filemtime(public_path('favicon-32.png')) ?: '1' }}" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
     @php $cssPath = public_path('css/app.css'); @endphp
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ is_file($cssPath) ? filemtime($cssPath) : '1' }}">
 

@@ -47,7 +47,14 @@
                 <h4>Contact Us</h4>
                 <ul class="footer__links footer__contact">
                     @if(config('site.address'))
-                        <li><x-ui-icon name="map-pin" /><span>{{ config('site.address') }}</span></li>
+                        <li>
+                            <x-ui-icon name="map-pin" />
+                            @if(config('site.map_url'))
+                                <a href="{{ config('site.map_url') }}" target="_blank" rel="noopener">{{ config('site.address') }}</a>
+                            @else
+                                <span>{{ config('site.address') }}</span>
+                            @endif
+                        </li>
                     @endif
                     <li><x-ui-icon name="phone" /><a href="tel:{{ config('site.phone') }}">{{ config('site.phone_display') }}</a></li>
                     <li><x-ui-icon name="mail" /><a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></li>
