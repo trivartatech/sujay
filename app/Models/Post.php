@@ -37,6 +37,17 @@ class Post extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // A post marked Published with no date would stay invisible (the
+        // published scope needs a past date). Default it to "now" so it shows.
+        static::saving(function (Post $post) {
+            if ($post->status === PostStatus::Published && $post->published_at === null) {
+                $post->published_at = now();
+            }
+        });
+    }
+
     /**
      * @return BelongsTo<Category, $this>
      */
