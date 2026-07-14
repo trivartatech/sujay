@@ -68,7 +68,7 @@
 
             // Self-drawing ECG lines + gentle heartbeat on decorative hearts
             document.querySelectorAll('.hero__ecg').forEach(function (el) { el.classList.add('ecg-draw'); });
-            document.querySelectorAll('.commit-card__art img, .heart-divider svg, .philosophy-heart').forEach(function (el) { el.classList.add('beat'); });
+            document.querySelectorAll('.commit-card__art img, .philosophy-card__art img, .heart-divider svg, .philosophy-heart').forEach(function (el) { el.classList.add('beat'); });
 
             // Scroll-based reveal — reliable in real browsers; uses timers (not
             // rAF, which pauses in hidden tabs) for the initial passes.
