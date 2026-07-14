@@ -393,6 +393,21 @@ p { margin: 0 0 1rem; }
 
 .cta-strip__icon--img img { width: 100%; height: 100%; object-fit: contain; }
 
+/* ── Motion (subtle, dependency-free) ────────────────────────
+   Hidden state applies ONLY when JS adds .js-motion and the visitor
+   hasn't requested reduced motion, so content is never stuck invisible. */
+.js-motion [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); transition-delay: var(--reveal-delay, 0ms); will-change: opacity, transform; }
+.js-motion [data-reveal].in-view { opacity: 1; transform: none; }
+
+.js-motion .ecg-draw path { stroke-dasharray: 2400; stroke-dashoffset: 2400; }
+.js-motion .ecg-draw.in-view path { animation: ecg-draw 2.1s ease forwards; }
+@keyframes ecg-draw { to { stroke-dashoffset: 0; } }
+
+.js-motion .beat { animation: heartbeat 2.6s ease-in-out infinite; transform-origin: center; }
+@keyframes heartbeat { 0%, 34%, 100% { transform: scale(1); } 8% { transform: scale(1.06); } 16% { transform: scale(1); } 24% { transform: scale(1.045); } }
+
+@media print { .js-motion [data-reveal] { opacity: 1 !important; transform: none !important; } }
+
 /* Wide rich-text content must scroll in its own box, never the page */
 .prose table { display: block; overflow-x: auto; white-space: nowrap; }
 .prose pre { overflow-x: auto; }
