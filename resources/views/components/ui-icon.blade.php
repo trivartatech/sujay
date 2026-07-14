@@ -10,11 +10,11 @@
         @break
 
     @case('heart-artery')
-        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5v6M9 8h6"/></svg>
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M7 11 16.5 7"/><circle cx="11.6" cy="9.1" r="1" fill="currentColor" stroke="none"/></svg>
         @break
 
     @case('heart-failure')
-        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="m13 6-3 4h4l-3 4"/></svg>
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 6v5.5M9.4 9 12 11.6 14.6 9"/></svg>
         @break
 
     @case('activity')
@@ -22,7 +22,7 @@
         @break
 
     @case('valve')
-        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4.9 7.5l14.2 9M19.1 7.5 4.9 16.5"/></svg>
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="9"/><path d="M12 12V3.2M12 12l7.6 4.4M12 12L4.4 16.4"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
         @break
 
     @case('syringe')
