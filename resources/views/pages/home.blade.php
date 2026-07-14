@@ -58,7 +58,7 @@
     {{-- ── Heart Health Library ────────────────────────────── --}}
     @if($sections->isNotEmpty())
         <section class="section section--soft">
-            <div class="container">
+            <div class="container container--wide">
                 <div class="section__head">
                     <h2>Heart Health Library</h2>
                     <p>Trusted information to help you understand, prevent and manage heart conditions.</p>

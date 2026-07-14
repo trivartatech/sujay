@@ -38,6 +38,7 @@ h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
 p { margin: 0 0 1rem; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
+.container--wide { max-width: 1340px; }
 .section { padding: 3.5rem 0; }
 .section--soft { background: var(--bg-soft); }
 .section__head { max-width: 680px; margin: 0 auto 2.25rem; text-align: center; }
@@ -136,9 +137,9 @@ p { margin: 0 0 1rem; }
 .lib-tile { display: block; color: inherit; transition: .18s ease; }
 .lib-tile:hover { text-decoration: none; transform: translateY(-4px); }
 .lib-tile:hover .lib-tile__img { box-shadow: var(--shadow-lg); }
-/* All six illustrations are normalised to 1280x853 (3:2), so cover fills the
-   tile edge-to-edge with no cropping and no letterboxing. */
-.lib-tile__img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); background: #fff; transition: .18s ease; }
+/* All six illustrations are normalised to 1200x900 (4:3) with the artwork
+   filling ~86%, so cover fills the tile edge-to-edge, no cropping/letterbox. */
+.lib-tile__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); background: #fff; transition: .18s ease; }
 .lib-tile__cap { text-align: center; padding: .6rem .3rem 0; }
 .lib-tile__cap h3 { font-size: 1rem; margin: 0 0 .2rem; }
 .lib-tile__cap p { color: var(--muted); font-size: .78rem; line-height: 1.4; margin: 0; }
