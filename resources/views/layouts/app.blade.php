@@ -70,12 +70,24 @@
             document.querySelectorAll('.hero__ecg').forEach(function (el) { el.classList.add('ecg-draw'); });
             document.querySelectorAll('.commit-card__art img, .heart-divider svg, .philosophy-heart').forEach(function (el) { el.classList.add('beat'); });
 
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-            reveals.forEach(function (el) { io.observe(el); });
-            document.querySelectorAll('.ecg-draw').forEach(function (el) { io.observe(el); });
+            // Scroll-based reveal (reliable everywhere; reveals what's in view, incl. on load)
+            var pending = reveals.concat(Array.prototype.slice.call(document.querySelectorAll('.ecg-draw')));
+            function revealVisible() {
+                var vh = window.innerHeight || document.documentElement.clientHeight;
+                pending = pending.filter(function (el) {
+                    var r = el.getBoundingClientRect();
+                    if (r.top < vh * 0.92 && r.bottom > 0) { el.classList.add('in-view'); return false; }
+                    return true;
+                });
+            }
+            var ticking = false;
+            function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { revealVisible(); ticking = false; }); } }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            requestAnimationFrame(revealVisible);   // initial pass (above-the-fold)
+            setTimeout(revealVisible, 400);          // safety net
+            // Absolute fallback: never leave anything hidden
+            setTimeout(function () { pending.forEach(function (el) { el.classList.add('in-view'); }); }, 2500);
         })();
     </script>
     @stack('scripts')
