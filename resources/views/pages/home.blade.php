@@ -27,6 +27,12 @@
                 <div class="hero__photo hero__photo--placeholder">Doctor photo</div>
             </div>
         </div>
+
+        <div class="hero__ecg" aria-hidden="true">
+            <svg viewBox="0 0 1200 44" preserveAspectRatio="none">
+                <path d="M0 26 H470 l14 0 l9 -22 l11 40 l13 -40 l9 22 l8 0 H1200" fill="none" stroke="var(--red-600)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+        </div>
     </section>
 
     {{-- ── Comprehensive Cardiac Care ──────────────────────── --}}
@@ -58,14 +64,14 @@
                     <p>Trusted information to help you understand, prevent and manage heart conditions.</p>
                 </div>
 
-                <div class="grid grid--3">
+                <div class="grid grid--6">
                     @foreach($sections as $section)
                         @if($section->card_image_url)
                             <a class="lib-tile" href="{{ route('library.section', $section) }}">
                                 <img class="lib-tile__img" src="{{ $section->card_image_url }}" alt="{{ $section->title }}" loading="lazy">
                                 <div class="lib-tile__cap">
                                     @unless($section->image_has_title)<h3>{{ $section->title }}</h3>@endunless
-                                    <p>{{ \Illuminate\Support\Str::limit($section->description, 70) }}</p>
+                                    <p>{{ \Illuminate\Support\Str::limit($section->description, 48) }}</p>
                                 </div>
                             </a>
                         @else
@@ -73,7 +79,7 @@
                                 <div class="lib-card__img lib-card__img--ph"><x-ui-icon name="book" style="width:34px;height:34px" /></div>
                                 <div class="lib-card__body">
                                     <h3>{{ $section->title }}</h3>
-                                    <p>{{ \Illuminate\Support\Str::limit($section->description, 62) }}</p>
+                                    <p>{{ \Illuminate\Support\Str::limit($section->description, 48) }}</p>
                                 </div>
                             </a>
                         @endif
