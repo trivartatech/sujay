@@ -71,6 +71,10 @@
 
         <div class="footer__bottom">
             <span>&copy; {{ now()->year }} {{ config('site.name') }}. All Rights Reserved.</span>
+            <span class="footer__credit">
+                Designed with <span class="footer__heart" aria-label="love">&#10084;</span> by
+                <a href="https://trivarta.in" target="_blank" rel="noopener">Trivarta Tech Pvt Ltd</a>
+            </span>
             <span>
                 <a href="{{ route('contact') }}">Privacy Policy</a>
                 &nbsp;|&nbsp;
