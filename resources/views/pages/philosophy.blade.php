@@ -23,8 +23,8 @@
                     <span class="q q--close">&rdquo;</span>
                 </blockquote>
             </div>
-            <div class="phil-hero__art">
-                <img src="{{ $v('images/philosophy/hero-heart.png') }}" alt="Heart with pulse">
+            <div class="phil-hero__photo">
+                <img src="{{ $v('images/philosophy/hero-photo.jpg') }}" alt="Doctor's hands holding a heart with a pulse line">
             </div>
         </div>
     </section>
@@ -44,32 +44,32 @@
         <div class="container container--wide">
             <div class="value-grid">
                 <div class="value-card">
-                    <span class="value-card__icon"><x-ui-icon name="ear" /></span>
+                    <span class="value-card__icon"><img src="{{ $v('images/philosophy/cards/you-are-heard.png') }}" alt=""></span>
                     <h3>You Are Heard</h3>
                     <p>I believe every patient deserves to be heard, treated with respect, and involved in decisions about their care.</p>
                 </div>
                 <div class="value-card">
-                    <span class="value-card__icon"><x-ui-icon name="clipboard-check" /></span>
+                    <span class="value-card__icon"><img src="{{ $v('images/philosophy/cards/evidence.png') }}" alt=""></span>
                     <h3>Evidence-Based Care</h3>
                     <p>My approach combines careful clinical evaluation, evidence-based medicine, and clear communication to create a treatment plan tailored to your needs.</p>
                 </div>
                 <div class="value-card">
-                    <span class="value-card__icon"><x-ui-icon name="shield-check" /></span>
+                    <span class="value-card__icon"><img src="{{ $v('images/philosophy/cards/prevention.png') }}" alt=""></span>
                     <h3>Prevention Matters</h3>
                     <p>Managing blood pressure, cholesterol, diabetes, lifestyle, and other risk factors can make a meaningful difference in your long-term heart health.</p>
                 </div>
                 <div class="value-card">
-                    <span class="value-card__icon"><x-ui-icon name="chat" /></span>
+                    <span class="value-card__icon"><img src="{{ $v('images/philosophy/cards/communication.png') }}" alt=""></span>
                     <h3>Clear &amp; Open Communication</h3>
                     <p>I take time to explain your condition, discuss the purpose of tests or treatments, and answer your questions in simple, understandable language.</p>
                 </div>
                 <div class="value-card">
-                    <span class="value-card__icon"><x-ui-icon name="user-heart" /></span>
+                    <span class="value-card__icon"><img src="{{ $v('images/philosophy/cards/personalised.png') }}" alt=""></span>
                     <h3>Personalised Treatment</h3>
                     <p>Every heart is different. Your care plan is individualised based on your health, lifestyle, preferences, and goals.</p>
                 </div>
                 <div class="value-card">
-                    <span class="value-card__icon"><x-ui-icon name="hand-heart" /></span>
+                    <span class="value-card__icon"><img src="{{ $v('images/philosophy/cards/compassion.png') }}" alt=""></span>
                     <h3>Compassionate Partnership</h3>
                     <p>Whether it's prevention, a new diagnosis, or ongoing care, you can expect honest, compassionate, and patient-centred care.</p>
                 </div>
