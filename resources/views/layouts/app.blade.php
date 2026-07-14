@@ -7,7 +7,8 @@
     @include('partials.seo')
 
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @php $cssPath = public_path('css/app.css'); @endphp
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ is_file($cssPath) ? filemtime($cssPath) : '1' }}">
 
     {{-- Physician schema on every page --}}
     <script type="application/ld+json">

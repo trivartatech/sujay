@@ -133,7 +133,9 @@ p { margin: 0 0 1rem; }
 .lib-tile { display: block; color: inherit; transition: .18s ease; }
 .lib-tile:hover { text-decoration: none; transform: translateY(-4px); }
 .lib-tile:hover .lib-tile__img { box-shadow: var(--shadow-lg); }
-.lib-tile__img { width: 100%; aspect-ratio: 1 / 0.72; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; transition: .18s ease; }
+/* contain (not cover) so the baked-in title is never clipped; the images'
+   own light background blends with the tile so letterboxing is invisible. */
+.lib-tile__img { width: 100%; aspect-ratio: 3 / 2; object-fit: contain; border-radius: var(--radius); box-shadow: var(--shadow); background: #fbfdff; transition: .18s ease; }
 .lib-tile__cap { text-align: center; padding: .7rem .4rem 0; }
 .lib-tile__cap h3 { font-size: 1rem; margin: 0 0 .2rem; }
 .lib-tile__cap p { color: var(--muted); font-size: .84rem; margin: 0; }
