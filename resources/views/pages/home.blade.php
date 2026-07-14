@@ -131,8 +131,8 @@
                             @if($post->featured_image)
                                 <img class="post-card__img" src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}" loading="lazy">
                             @else
-                                <span class="post-card__img" style="display:grid;place-items:center;color:var(--navy-600)">
-                                    <x-ui-icon name="heart-pulse" style="width:26px;height:26px" />
+                                <span class="post-card__img post-card__img--logo">
+                                    <img src="{{ asset('images/logo-mark.png') }}" alt="{{ config('site.name') }}" loading="lazy">
                                 </span>
                             @endif
                             <span>

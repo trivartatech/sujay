@@ -1,6 +1,10 @@
 <a class="card" href="{{ route('blog.show', $post) }}" style="text-decoration:none;color:inherit">
     @if($post->featured_image)
         <img class="card__img" src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}" loading="lazy">
+    @else
+        <span class="card__img card__img--logo">
+            <img src="{{ asset('images/logo-mark.png') }}" alt="{{ config('site.name') }}" loading="lazy">
+        </span>
     @endif
     <div class="card__body">
         <div class="card__meta">
