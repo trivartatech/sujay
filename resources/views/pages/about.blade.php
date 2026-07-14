@@ -133,7 +133,10 @@
         <div class="container">
             <div class="philosophy-card">
                 <div class="philosophy-card__art">
-                    <img src="{{ asset('images/philosophy-heart.png') }}?v={{ @filemtime(public_path('images/philosophy-heart.png')) ?: '1' }}" alt="">
+                    <svg viewBox="0 0 200 176" class="philosophy-heart" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M100 160 C 34 116, 15 80, 15 52 A 42 42 0 0 1 100 40 A 42 42 0 0 1 185 52 C 185 80, 166 116, 100 160 Z" stroke="#e23b4e" stroke-width="5"/>
+                        <path d="M20 90 H68 l11 -30 l18 62 l14 -47 l10 19 h35" stroke="#ffffff" stroke-width="4"/>
+                    </svg>
                 </div>
                 <div class="philosophy-card__text">
                     <h2>My Philosophy</h2>

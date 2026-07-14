@@ -328,6 +328,7 @@ p { margin: 0 0 1rem; }
 .philosophy-card { background: var(--navy-900); border-radius: 16px; padding: 2.2rem 2.5rem; display: grid; grid-template-columns: 210px 1fr; gap: 2.2rem; align-items: center; }
 .philosophy-card__art { text-align: center; }
 .philosophy-card__art img { width: 100%; max-width: 200px; opacity: .95; }
+.philosophy-heart { width: 100%; max-width: 190px; height: auto; }
 .philosophy-card__text { border-left: 1px solid rgba(255,255,255,.15); padding-left: 2.2rem; }
 .philosophy-card__text h2 { color: #fff; margin-bottom: 1rem; }
 .philosophy-card__text p { color: #cddcef; margin-bottom: .8rem; line-height: 1.7; }
