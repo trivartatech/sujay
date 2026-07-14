@@ -24,8 +24,12 @@
                                 <img class="card__img" src="{{ asset('storage/'.$procedure->image) }}" alt="{{ $procedure->title }}" loading="lazy">
                             @endif
                             <div class="card__body">
-                                <span class="care__icon" style="margin:0 0 .8rem;width:40px;height:40px">
-                                    <x-ui-icon :name="$procedure->icon ?: 'heart-pulse'" />
+                                <span class="care__icon" style="margin:0 0 .8rem;width:44px;height:44px">
+                                    @if($procedure->care_icon_url)
+                                        <img src="{{ $procedure->care_icon_url }}" alt="{{ $procedure->title }}" loading="lazy">
+                                    @else
+                                        <x-ui-icon :name="$procedure->icon ?: 'heart-pulse'" />
+                                    @endif
                                 </span>
                                 <h3>{{ $procedure->title }}</h3>
                                 <p>{{ \Illuminate\Support\Str::limit($procedure->summary, 120) }}</p>

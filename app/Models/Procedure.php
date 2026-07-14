@@ -41,4 +41,16 @@ class Procedure extends Model
     {
         $query->where('is_published', true);
     }
+
+    /**
+     * Line-art care icon extracted from the design, by slug
+     * (public/images/care/{slug}.png). Falls back to null so the view can
+     * use the inline SVG icon component instead.
+     */
+    public function getCareIconUrlAttribute(): ?string
+    {
+        $path = 'images/care/'.$this->slug.'.png';
+
+        return is_file(public_path($path)) ? asset($path).'?v='.filemtime(public_path($path)) : null;
+    }
 }

@@ -46,7 +46,13 @@
                 <div class="care-grid">
                     @foreach($services as $service)
                         <a class="care" href="{{ route('services.show', $service) }}">
-                            <span class="care__icon"><x-ui-icon :name="$service->icon ?: 'heart-pulse'" /></span>
+                            <span class="care__icon">
+                                @if($service->care_icon_url)
+                                    <img src="{{ $service->care_icon_url }}" alt="{{ $service->title }}" loading="lazy">
+                                @else
+                                    <x-ui-icon :name="$service->icon ?: 'heart-pulse'" />
+                                @endif
+                            </span>
                             <h3>{{ $service->title }}</h3>
                         </a>
                     @endforeach
