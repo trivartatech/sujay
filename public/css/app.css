@@ -68,9 +68,10 @@ p { margin: 0 0 1rem; }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 1px 6px rgba(10,31,68,.04); }
-.nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 0; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .4rem 0; }
 .brand { display: flex; align-items: center; gap: .65rem; }
 .brand:hover { text-decoration: none; }
+.brand__logo { height: 78px; width: auto; flex: none; display: block; }
 .brand__mark { height: 46px; width: auto; flex: none; display: block; }
 .brand__text { line-height: 1.1; }
 .brand__name { font-weight: 800; font-size: 1.18rem; color: var(--navy-900); letter-spacing: .02em; }
@@ -253,6 +254,7 @@ p { margin: 0 0 1rem; }
     .nav__links > li { padding: .55rem 0; border-bottom: 1px solid var(--line); }
     .drop { position: static; display: block; border: 0; box-shadow: none; padding: .3rem 0 0 .8rem; min-width: 0; }
     .nav__toggle { display: block; }
+    .brand__logo { height: 58px; }
     .care-grid { grid-template-columns: repeat(2, 1fr); }
     .grid--3, .grid--2, .grid--6 { grid-template-columns: 1fr; }
     .hero__points { grid-template-columns: 1fr; }

@@ -1,11 +1,7 @@
 <header class="site-header">
     <div class="container nav">
         <a href="{{ route('home') }}" class="brand">
-            <img src="{{ asset('images/logo-mark.png') }}?v={{ @filemtime(public_path('images/logo-mark.png')) ?: '1' }}" alt="{{ config('site.name') }} logo" class="brand__mark">
-            <span class="brand__text">
-                <span class="brand__name">{{ config('site.name') }}</span><br>
-                <span class="brand__role">{{ config('site.specialty') }}</span>
-            </span>
+            <img src="{{ asset('images/logo.png') }}?v={{ @filemtime(public_path('images/logo.png')) ?: '1' }}" alt="{{ config('site.name') }} — {{ config('site.specialty') }}" class="brand__logo">
         </a>
 
         <button class="nav__toggle" aria-label="Toggle menu">&#9776;</button>
