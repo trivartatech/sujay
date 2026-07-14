@@ -66,8 +66,7 @@
                 });
             });
 
-            // Self-drawing ECG lines + gentle heartbeat on decorative hearts
-            document.querySelectorAll('.hero__ecg').forEach(function (el) { el.classList.add('ecg-draw'); });
+            // Gentle heartbeat on decorative hearts (hero ECG now scrolls continuously via CSS)
             document.querySelectorAll('.commit-card__art img, .philosophy-card__art img, .heart-divider svg, .philosophy-heart').forEach(function (el) { el.classList.add('beat'); });
 
             // Scroll-based reveal — reliable in real browsers; uses timers (not

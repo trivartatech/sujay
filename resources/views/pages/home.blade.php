@@ -8,7 +8,7 @@
     <section class="hero">
         <div class="container hero__grid">
             <div>
-                <h1>Compassionate &amp; Expert<br>Care for Every <span class="accent">Heartbeat</span></h1>
+                <h1>Compassionate &amp; Expert<br>Care for Every <span class="accent beat-text">Heartbeat</span></h1>
                 <p class="hero__lead">Providing comprehensive, evidence-based and compassionate care for your heart and lung health.</p>
 
                 <div class="hero__points">
@@ -30,9 +30,12 @@
             </div>
         </div>
 
+        @php $ecgSeg = 'h60 l8 -4 l8 4 h10 l6 4 l6 -26 l6 34 l6 -12 h10 l12 -7 l12 7 h56 '; @endphp
         <div class="hero__ecg" aria-hidden="true">
             <svg viewBox="0 0 1200 44" preserveAspectRatio="none">
-                <path d="M0 26 H470 l14 0 l9 -22 l11 40 l13 -40 l9 22 l8 0 H1200" fill="none" stroke="var(--red-600)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+                <g class="ecg-run">
+                    <path d="M0 26 {{ str_repeat($ecgSeg, 13) }}" fill="none" stroke="var(--red-600)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                </g>
             </svg>
         </div>
     </section>
