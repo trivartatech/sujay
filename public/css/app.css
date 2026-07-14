@@ -176,8 +176,8 @@ p { margin: 0 0 1rem; }
 .prose h3 { font-size: 1.22rem; margin: 1.7rem 0 .6rem; }
 .prose h4 { font-size: 1.06rem; margin: 1.4rem 0 .5rem; color: var(--navy-800); }
 .prose p { margin: 0 0 1.1rem; }
-.prose a { color: var(--navy-700); text-decoration: underline; }
-.prose a:hover { color: var(--red-600); }
+.prose a:not(.btn) { color: var(--navy-700); text-decoration: underline; }
+.prose a:not(.btn):hover { color: var(--red-600); }
 .prose strong { font-weight: 700; color: var(--navy-900); }
 .prose ul, .prose ol { margin: 0 0 1.1rem; padding-left: 1.5rem; }
 .prose ul li { list-style: disc; }
