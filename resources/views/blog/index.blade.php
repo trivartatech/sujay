@@ -16,10 +16,10 @@
         <div class="container">
             @if($categories->isNotEmpty())
                 <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem">
-                    <a href="{{ route('blog.index') }}" class="btn {{ $activeCategory === '' ? 'btn--primary' : 'btn--ghost' }}">All</a>
+                    <a href="{{ route('blog.index') }}" class="btn {{ $activeCategory === '' ? 'btn--primary' : 'btn--outline' }}">All</a>
                     @foreach($categories as $category)
                         <a href="{{ route('blog.index', ['category' => $category->slug]) }}"
-                           class="btn {{ $activeCategory === $category->slug ? 'btn--primary' : 'btn--ghost' }}">{{ $category->name }}</a>
+                           class="btn {{ $activeCategory === $category->slug ? 'btn--primary' : 'btn--outline' }}">{{ $category->name }}</a>
                     @endforeach
                 </div>
             @endif

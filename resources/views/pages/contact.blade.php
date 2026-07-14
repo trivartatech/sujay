@@ -35,7 +35,7 @@
 
                 <div style="margin-top:1.5rem">
                     <a href="https://wa.me/{{ config('site.whatsapp') }}" class="btn btn--whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
-                    <a href="{{ route('appointment.create') }}" class="btn btn--ghost">Book Appointment</a>
+                    <a href="{{ route('appointment.create') }}" class="btn btn--outline">Book Appointment</a>
                 </div>
             </div>
 
