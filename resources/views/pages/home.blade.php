@@ -32,10 +32,17 @@
 
         @php $ecgSeg = 'h60 l8 -4 l8 4 h10 l6 4 l6 -26 l6 34 l6 -12 h10 l12 -7 l12 7 h56 '; @endphp
         <div class="hero__ecg" aria-hidden="true">
-            <svg viewBox="0 0 1200 44" preserveAspectRatio="none">
-                <g class="ecg-run">
-                    <path d="M0 26 {{ str_repeat($ecgSeg, 13) }}" fill="none" stroke="var(--red-600)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-                </g>
+            <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
+                <defs>
+                    <mask id="ecgGap" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="48">
+                        <rect width="1200" height="48" fill="#fff"/>
+                        {{-- blank "refresh" window just ahead of the sweep cursor --}}
+                        <rect class="ecg-cursor" x="0" y="0" width="90" height="48" fill="#000"/>
+                    </mask>
+                </defs>
+                <path d="M0 28 {{ str_repeat($ecgSeg, 7) }}" fill="none" stroke="var(--red-600)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" mask="url(#ecgGap)"/>
+                {{-- glowing sweep cursor at the leading edge --}}
+                <rect class="ecg-cursor ecg-cursor-bar" x="-1.4" y="6" width="2.8" height="36" rx="1.4" fill="#e23b4e"/>
             </svg>
         </div>
     </section>
