@@ -20,19 +20,19 @@
 
                 <div class="stat-row">
                     <div class="stat-item">
-                        <span class="stat-item__icon"><x-ui-icon name="user" /></span>
+                        <span class="stat-item__icon"><img src="{{ asset('images/stats/experience.png') }}?v={{ @filemtime(public_path('images/stats/experience.png')) ?: '1' }}" alt=""></span>
                         <span class="stat-item__label">8+ Years<br>Experience</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-item__icon stat-item__icon--badge" data-badge="24"><x-ui-icon name="phone" /></span>
+                        <span class="stat-item__icon"><img src="{{ asset('images/stats/emergency.png') }}?v={{ @filemtime(public_path('images/stats/emergency.png')) ?: '1' }}" alt=""></span>
                         <span class="stat-item__label">24/7 Emergency<br>Support</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-item__icon"><x-ui-icon name="shield-check" /></span>
+                        <span class="stat-item__icon"><img src="{{ asset('images/stats/technology.png') }}?v={{ @filemtime(public_path('images/stats/technology.png')) ?: '1' }}" alt=""></span>
                         <span class="stat-item__label">Advanced<br>Technology</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-item__icon"><x-ui-icon name="target" /></span>
+                        <span class="stat-item__icon"><img src="{{ asset('images/stats/wellness.png') }}?v={{ @filemtime(public_path('images/stats/wellness.png')) ?: '1' }}" alt=""></span>
                         <span class="stat-item__label">Focused on<br>Long-term Wellness</span>
                     </div>
                 </div>
