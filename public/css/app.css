@@ -358,12 +358,12 @@ p { margin: 0 0 1rem; }
 .phil-hero .container { position: relative; z-index: 2; }
 .phil-hero__intro { max-width: 520px; padding: 2.5rem 0 3.2rem; }
 .phil-hero__media { position: absolute; top: 0; right: 0; bottom: 0; width: 58%; z-index: 1; }
-.phil-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center right; }
+.phil-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .phil-hero__photo {
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 34%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 34%); }
-/* only the heart cut-out beats; it never scales below 1 so the photo heart stays hidden */
-.js-motion .phil-hero__heartbeat { animation: heartbeat 2.6s ease-in-out infinite; transform-origin: 51% 56%; will-change: transform; }
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 32%); }
+/* separate heart layer beats in place; hands stay perfectly still */
+.js-motion .phil-hero__heartbeat { animation: heartbeat 2.4s ease-in-out infinite; transform-origin: center; will-change: transform; }
 .phil-hero__title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; margin: .6rem 0 0; }
 .phil-hero__title .navy { color: var(--navy-900); }
 .phil-hero__title .red { color: var(--red-600); }
