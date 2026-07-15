@@ -10,7 +10,8 @@
     {{-- ── Hero ───────────────────────────────────────────── --}}
     <section class="phil-hero">
         <div class="phil-hero__media">
-            <img src="{{ $v('images/philosophy/hero-photo.jpg') }}" alt="Doctor's hands holding a heart with a pulse line">
+            <img class="phil-hero__photo" src="{{ $v('images/philosophy/hero-photo.jpg') }}" alt="Doctor's hands holding a heart with a pulse line">
+            <img class="phil-hero__heartbeat" src="{{ $v('images/philosophy/hero-heart-overlay.png') }}" alt="" aria-hidden="true">
         </div>
         <div class="container">
             <div class="phil-hero__intro">
