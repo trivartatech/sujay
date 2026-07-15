@@ -362,8 +362,6 @@ p { margin: 0 0 1rem; }
 .phil-hero__photo {
     -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%);
     mask-image: linear-gradient(to right, transparent 0%, #000 32%); }
-/* separate heart layer beats in place; hands stay perfectly still */
-.js-motion .phil-hero__heartbeat { animation: heartbeat 2.4s ease-in-out infinite; transform-origin: center; will-change: transform; }
 .phil-hero__title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; margin: .6rem 0 0; }
 .phil-hero__title .navy { color: var(--navy-900); }
 .phil-hero__title .red { color: var(--red-600); }
