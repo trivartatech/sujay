@@ -1,7 +1,7 @@
-# Dr. Sujay J — Cardiologist & Pulmonologist
+# Dr. Sujay J — Cardiologist
 
 Public marketing site + Heart Health Library + blog engine + Filament admin
-dashboard for a consultant cardiologist & pulmonologist.
+dashboard for a consultant cardiologist.
 
 **Production domain:** [drsujayj.in](https://drsujayj.in)
 

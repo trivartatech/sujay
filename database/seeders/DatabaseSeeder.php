@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
     private function settings(): void
     {
         $defaults = [
-            ['seo.default_title', 'Dr. Sujay J — Cardiologist & Pulmonologist', 'seo'],
-            ['seo.default_description', 'Consultant Cardiologist & Pulmonologist providing compassionate, evidence-based care for your heart and lung health.', 'seo'],
+            ['seo.default_title', 'Dr. Sujay J — Cardiologist', 'seo'],
+            ['seo.default_description', 'Consultant Cardiologist providing compassionate, evidence-based care for your heart health.', 'seo'],
             ['stats.years_experience', 0, 'homepage'],
             ['stats.patients_treated', 0, 'homepage'],
         ];
@@ -57,7 +57,6 @@ class DatabaseSeeder extends Seeder
             ['Arrhythmia Care', 'activity', 'Evaluation and treatment of irregular heart rhythms, palpitations and conduction disorders.'],
             ['Valvular Heart Disease', 'valve', 'Assessment and management of narrowed or leaking heart valves.'],
             ['Interventional Cardiology', 'syringe', 'Catheter-based procedures including angiography, angioplasty and stenting.'],
-            ['Pulmonary Care', 'lungs', 'Diagnosis and management of asthma, COPD and other respiratory conditions.'],
         ];
 
         foreach ($services as $i => [$title, $icon, $summary]) {
@@ -98,7 +97,6 @@ class DatabaseSeeder extends Seeder
             ['How long does a consultation take?', 'A first consultation typically takes 20–30 minutes so there is enough time to review your history and answer your questions.'],
             ['Do I need a referral to book an appointment?', 'No referral is required. You can request an appointment directly through this website, by phone, or on WhatsApp.'],
             ['When should I see a cardiologist?', 'Consider a consultation if you experience chest discomfort, breathlessness, palpitations, dizziness, or if you have risk factors such as diabetes, high blood pressure, high cholesterol or a family history of heart disease.'],
-            ['Do you treat lung conditions as well?', 'Yes. As a Cardiologist & Pulmonologist, Dr. Sujay J also manages asthma, COPD, and other respiratory conditions.'],
         ];
 
         foreach ($faqs as $i => [$question, $answer]) {

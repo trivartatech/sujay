@@ -8,7 +8,7 @@
         <div class="footer__grid">
             <div>
                 <h4>About</h4>
-                <p>Providing comprehensive and compassionate care for your heart and lung health.</p>
+                <p>Providing comprehensive and compassionate care for your heart health.</p>
                 @if($socials)
                     <div class="socials">
                         @foreach($socials as $network => $url)
@@ -65,7 +65,7 @@
 
             <div>
                 <h4>Meet the Doctor</h4>
-                <p>{{ config('site.name') }} is a Consultant {{ config('site.specialty') }} committed to prevention, early diagnosis, and long-term heart and lung care.</p>
+                <p>{{ config('site.name') }} is a Consultant {{ config('site.specialty') }} committed to prevention, early diagnosis, and long-term heart care.</p>
                 <a href="{{ route('about') }}" class="btn btn--red" style="margin-top:.4rem">Know More</a>
             </div>
         </div>

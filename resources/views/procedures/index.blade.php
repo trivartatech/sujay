@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('title', 'Services')
-@section('description', 'Comprehensive cardiac and pulmonary care by Dr. Sujay J — preventive cardiology, coronary artery disease, heart failure, arrhythmia, valvular disease, interventional cardiology and pulmonary care.')
+@section('description', 'Comprehensive cardiac care by Dr. Sujay J — preventive cardiology, coronary artery disease, heart failure, arrhythmia, valvular disease, and interventional cardiology.')
 
 @section('content')
     <section class="page-band">
         <div class="container">
             <div class="breadcrumb"><a href="{{ route('home') }}">Home</a> · Services</div>
             <h1>Comprehensive Cardiac Care</h1>
-            <p>Evidence-based care across the full spectrum of heart and lung conditions.</p>
+            <p>Evidence-based care across the full spectrum of heart conditions.</p>
         </div>
     </section>
 

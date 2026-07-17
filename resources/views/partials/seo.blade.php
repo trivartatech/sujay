@@ -6,7 +6,7 @@
     $t = trim(html_entity_decode($__env->yieldContent('title'), ENT_QUOTES));
     $pageTitle = $t !== '' ? $t.' — '.config('site.name') : $siteName;
     $d = trim(html_entity_decode($__env->yieldContent('description'), ENT_QUOTES));
-    $desc = $d !== '' ? $d : 'Consultant Cardiologist & Pulmonologist providing compassionate, evidence-based care for your heart and lung health.';
+    $desc = $d !== '' ? $d : 'Consultant Cardiologist providing compassionate, evidence-based care for your heart health.';
 @endphp
 <title>{{ $pageTitle }}</title>
 <meta name="description" content="{{ $desc }}">

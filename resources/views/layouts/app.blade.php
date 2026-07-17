@@ -18,7 +18,7 @@
         '@context' => 'https://schema.org',
         '@type' => 'Physician',
         'name' => config('site.name'),
-        'medicalSpecialty' => ['Cardiovascular', 'Pulmonary'],
+        'medicalSpecialty' => 'Cardiovascular',
         'url' => config('app.url'),
         'telephone' => config('site.phone'),
         'email' => config('site.email'),

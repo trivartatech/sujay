@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Heart Health Library')
-@section('description', 'Trusted information to help you understand, prevent and manage heart and lung conditions.')
+@section('description', 'Trusted information to help you understand, prevent and manage heart conditions.')
 
 @section('content')
     <section class="page-band">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('description', 'Dr. Sujay J — Consultant Cardiologist & Pulmonologist. Compassionate, evidence-based care for your heart and lung health.')
+@section('description', 'Dr. Sujay J — Consultant Cardiologist. Compassionate, evidence-based care for your heart health.')
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="container hero__grid">
             <div>
                 <h1>Compassionate &amp; Expert<br>Care for Every <span class="accent beat-text">Heartbeat</span></h1>
-                <p class="hero__lead">Providing comprehensive, evidence-based and compassionate care for your heart and lung health.</p>
+                <p class="hero__lead">Providing comprehensive, evidence-based and compassionate care for your heart health.</p>
 
                 <div class="hero__points">
                     <span class="hero__point"><x-ui-icon name="heart-pulse" /> Personalized Care</span>

@@ -39,7 +39,7 @@
                 {!! $article->body !!}
 
                 <div class="quote" style="margin-top:2rem">
-                    <strong>Have a question about your heart or lung health?</strong>
+                    <strong>Have a question about your heart health?</strong>
                     <p style="font-style:normal;margin:.6rem 0 0">
                         <a href="{{ route('appointment.create') }}" class="btn btn--primary">Request Consultation</a>
                     </p>

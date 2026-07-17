@@ -10,7 +10,7 @@
 
 return [
     'name' => 'Dr. Sujay J',
-    'specialty' => 'Cardiologist & Pulmonologist',
+    'specialty' => 'Cardiologist',
     'tagline' => 'Compassionate Care, Advanced Cardiology, Better Heart Health.',
     'domain' => 'drsujayj.in',
 
