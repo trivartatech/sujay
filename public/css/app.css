@@ -465,8 +465,8 @@ p { margin: 0 0 1rem; }
 @media (max-width: 640px) {
     .topbar { font-size: .74rem; }
     .topbar__right { display: none; }
-    .brand__mark { height: 54px; }
-    .brand__wordmark { height: 40px; }
+    .brand__mark { height: 64px; }
+    .brand__wordmark { height: 48px; }
     .care-grid { grid-template-columns: repeat(2, 1fr); }
     .grid--3, .grid--2, .grid--6 { grid-template-columns: 1fr; }
     .hero__points { grid-template-columns: 1fr; }
