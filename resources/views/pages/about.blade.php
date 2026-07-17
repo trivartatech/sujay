@@ -15,7 +15,7 @@
                 <p class="about-hero__eyebrow">About</p>
                 <h1 class="about-hero__name">Dr. Sujay J</h1>
                 <p class="about-hero__role">Consultant Interventional Cardiologist</p>
-                <p class="about-hero__degrees">MBBS &nbsp;|&nbsp; MD (Medicine) &nbsp;|&nbsp; DM (Cardiology)</p>
+                <p class="about-hero__degrees">MBBS &nbsp;|&nbsp; MD (Pulmonary Medicine) &nbsp;|&nbsp; DM (Cardiology)</p>
                 <p class="about-hero__lead">With a strong foundation in Cardiology, I provide evidence-based diagnosis, advanced treatment, and long-term care tailored to each patient's needs.</p>
 
                 <div class="stat-row">
@@ -114,7 +114,7 @@
                 </div>
                 <div class="edu-node">
                     <span class="edu-node__dot edu-node__dot--red"><x-ui-icon name="heart-pulse" /></span>
-                    <h3>MD (Medicine)</h3>
+                    <h3>MD (Pulmonary Medicine)</h3>
                     <p>KLE University,<br>Belagavi</p>
                     <span class="edu-node__year">2014 – 2017</span>
                 </div>
