@@ -6,6 +6,10 @@
 
     @include('partials.seo')
 
+    @if(config('site.google_site_verification'))
+        <meta name="google-site-verification" content="{{ config('site.google_site_verification') }}">
+    @endif
+
     <link rel="icon" href="{{ asset('favicon.png') }}?v={{ @filemtime(public_path('favicon.png')) ?: '1' }}" sizes="128x128" type="image/png">
     <link rel="icon" href="{{ asset('favicon-32.png') }}?v={{ @filemtime(public_path('favicon-32.png')) ?: '1' }}" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
@@ -37,6 +41,7 @@
     </main>
 
     @include('partials.footer')
+    @include('partials.consent')
 
     <a class="wa-float" href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <x-ui-icon name="whatsapp" style="width:28px;height:28px" />

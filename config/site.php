@@ -30,6 +30,16 @@ return [
     // Where appointment/enquiry notifications are delivered
     'notification_email' => env('ADMIN_NOTIFICATION_EMAIL', 'drsujaycardio@gmail.com'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Analytics
+    |--------------------------------------------------------------------------
+    | GA4 only loads after the visitor accepts cookies (see partials/consent).
+    | Leave blank to disable analytics entirely.
+    */
+    'ga_id' => env('GA_MEASUREMENT_ID', ''),
+    'google_site_verification' => env('GOOGLE_SITE_VERIFICATION', ''),
+
     'social' => [
         'facebook' => env('SOCIAL_FACEBOOK', ''),
         'instagram' => env('SOCIAL_INSTAGRAM', ''),
