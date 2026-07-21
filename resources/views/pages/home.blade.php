@@ -8,18 +8,18 @@
     <section class="hero">
         <div class="container hero__grid">
             <div>
-                <h1>Compassionate &amp; Expert<br>Care for Every <span class="accent beat-text">Heartbeat</span></h1>
-                <p class="hero__lead">Providing comprehensive, evidence-based and compassionate care for your heart health.</p>
+                <h1>{{ __('site.hero_title_1') }}<br>{{ __('site.hero_title_2') }} <span class="accent beat-text">{{ __('site.hero_accent') }}</span></h1>
+                <p class="hero__lead">{{ __('site.hero_lead') }}</p>
 
                 <div class="hero__points">
-                    <span class="hero__point"><x-ui-icon name="heart-pulse" /> Personalized Care</span>
-                    <span class="hero__point"><x-ui-icon name="check-circle" /> Advanced Diagnostics</span>
-                    <span class="hero__point"><x-ui-icon name="users" /> Preventive Cardiology</span>
+                    <span class="hero__point"><x-ui-icon name="heart-pulse" /> {{ __('site.point_personalized') }}</span>
+                    <span class="hero__point"><x-ui-icon name="check-circle" /> {{ __('site.point_diagnostics') }}</span>
+                    <span class="hero__point"><x-ui-icon name="users" /> {{ __('site.point_preventive') }}</span>
                 </div>
 
                 <div class="hero__cta">
-                    <a href="{{ route('appointment.create') }}" class="btn btn--primary">Book an Appointment</a>
-                    <a href="{{ route('library.index') }}" class="btn btn--outline">Explore Heart Health Library</a>
+                    <a href="{{ route('appointment.create') }}" class="btn btn--primary">{{ __('site.book_appointment') }}</a>
+                    <a href="{{ route('library.index') }}" class="btn btn--outline">{{ __('site.explore_library') }}</a>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
         <section class="section">
             <div class="container">
                 <div class="section__head" style="margin-bottom:1.75rem">
-                    <h2>Comprehensive Cardiac Care</h2>
+                    <h2>{{ __('site.care_title') }}</h2>
                 </div>
 
                 <div class="care-grid">
@@ -76,8 +76,8 @@
         <section class="section section--soft">
             <div class="container container--wide">
                 <div class="section__head">
-                    <h2>Heart Health Library</h2>
-                    <p>Trusted information to help you understand, prevent and manage heart conditions.</p>
+                    <h2>{{ __('site.library_title') }}</h2>
+                    <p>{{ __('site.library_sub') }}</p>
                 </div>
 
                 <div class="grid grid--6">
@@ -114,17 +114,17 @@
                 </div>
             </div>
             <div>
-                <span class="eyebrow">Why Choose Dr. Sujay J?</span>
-                <h2>Your Partner in Heart Health</h2>
-                <p>I am a Consultant {{ config('site.specialty') }} dedicated to providing personalized, compassionate and advanced care. My goal is to help you live a healthier, longer and better life.</p>
+                <span class="eyebrow">{{ __('site.why_eyebrow') }}</span>
+                <h2>{{ __('site.why_title') }}</h2>
+                <p>{{ __('site.why_lead') }}</p>
 
                 <ul class="list-check">
-                    <li>Extensive experience in cardiovascular care</li>
-                    <li>Evidence-based treatment &amp; latest technologies</li>
-                    <li>Focus on prevention, early diagnosis and long-term wellness</li>
+                    <li>{{ __('site.why_point_1') }}</li>
+                    <li>{{ __('site.why_point_2') }}</li>
+                    <li>{{ __('site.why_point_3') }}</li>
                 </ul>
 
-                <a href="{{ route('about') }}" class="btn btn--primary">Know More About Me</a>
+                <a href="{{ route('about') }}" class="btn btn--primary">{{ __('site.know_more_about_me') }}</a>
             </div>
         </div>
     </section>
@@ -134,7 +134,7 @@
         <section class="section section--soft">
             <div class="container">
                 <div class="section__head">
-                    <h2>Featured Blog &amp; Research</h2>
+                    <h2>{{ __('site.blog_title') }}</h2>
                 </div>
 
                 <div class="grid grid--3">
@@ -157,7 +157,7 @@
                 </div>
 
                 <p style="text-align:center;margin-top:2rem">
-                    <a href="{{ route('blog.index') }}" class="btn btn--outline">View all articles</a>
+                    <a href="{{ route('blog.index') }}" class="btn btn--outline">{{ __('site.view_all_articles') }}</a>
                 </p>
             </div>
         </section>
@@ -168,7 +168,7 @@
         <section class="section">
             <div class="container">
                 <div class="section__head">
-                    <h2>What Our Patients Say</h2>
+                    <h2>{{ __('site.testimonials_title') }}</h2>
                 </div>
                 <div class="grid grid--3">
                     @foreach($testimonials as $testimonial)
@@ -188,11 +188,11 @@
     {{-- ── CTA band ────────────────────────────────────────── --}}
     <section class="page-band" style="text-align:center">
         <div class="container">
-            <h1 style="font-size:clamp(1.5rem,3vw,2.1rem)">Ready to take the next step?</h1>
-            <p style="margin:0 auto 1.5rem">Request a consultation with {{ config('site.name') }}, or reach out on WhatsApp for a quick query.</p>
+            <h1 style="font-size:clamp(1.5rem,3vw,2.1rem)">{{ __('site.cta_title') }}</h1>
+            <p style="margin:0 auto 1.5rem">{{ __('site.cta_lead') }}</p>
             <div class="hero__cta" style="justify-content:center">
-                <a href="{{ route('appointment.create') }}" class="btn btn--light">Request Consultation</a>
-                <a href="https://wa.me/{{ config('site.whatsapp') }}" class="btn btn--whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
+                <a href="{{ route('appointment.create') }}" class="btn btn--light">{{ __('site.request_consultation') }}</a>
+                <a href="https://wa.me/{{ config('site.whatsapp') }}" class="btn btn--whatsapp" target="_blank" rel="noopener">{{ __('site.whatsapp_us') }}</a>
             </div>
         </div>
     </section>

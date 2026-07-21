@@ -2,13 +2,12 @@
 @if(config('site.ga_id'))
     <div class="consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
         <p class="consent__text">
-            We use cookies to understand how visitors use this site so we can improve it.
-            No personal or medical information is collected.
-            <a href="{{ route('contact') }}">Learn more</a>
+            {{ __('site.consent_text') }}
+            <a href="{{ route('contact') }}">{{ __('site.consent_learn') }}</a>
         </p>
         <div class="consent__actions">
-            <button type="button" class="btn btn--outline" data-consent="deny">Decline</button>
-            <button type="button" class="btn btn--primary" data-consent="allow">Accept</button>
+            <button type="button" class="btn btn--outline" data-consent="deny">{{ __('site.consent_decline') }}</button>
+            <button type="button" class="btn btn--primary" data-consent="allow">{{ __('site.consent_accept') }}</button>
         </div>
     </div>
 

@@ -96,6 +96,12 @@ p { margin: 0 0 1rem; }
 .drop li a { display: block; padding: .5rem .7rem; border-radius: 6px; font-size: .9rem; color: var(--ink); }
 .drop li a:hover { background: var(--navy-50); text-decoration: none; }
 
+/* Language switcher */
+.lang-switch > a { display: inline-flex; align-items: center; gap: .35rem; }
+.lang-switch > a svg { flex: none; color: var(--muted); }
+.lang-switch .drop { left: auto; right: 0; min-width: 150px; }
+.lang-switch .drop li a[aria-current] { background: var(--navy-50); font-weight: 600; }
+
 /* Hero */
 .hero { background: linear-gradient(180deg, #f7fafd 0%, #eef3fa 100%); position: relative; overflow: hidden; }
 .hero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem; align-items: center; padding: 3rem 0; }

@@ -129,6 +129,10 @@
         <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.4A8 8 0 1 1 20 11.5Z"/><circle cx="8.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
         @break
 
+    @case('globe')
+        <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg>
+        @break
+
     @default
         <svg viewBox="0 0 24 24" {{ $attributes }} {!! $common !!}><circle cx="12" cy="12" r="9"/></svg>
 @endswitch

@@ -7,8 +7,8 @@
     <div class="container">
         <div class="footer__grid">
             <div>
-                <h4>About</h4>
-                <p>Providing comprehensive and compassionate care for your heart health.</p>
+                <h4>{{ __('site.footer_about') }}</h4>
+                <p>{{ __('site.footer_about_text') }}</p>
                 @if($socials)
                     <div class="socials">
                         @foreach($socials as $network => $url)
@@ -21,20 +21,20 @@
             </div>
 
             <div>
-                <h4>Quick Links</h4>
+                <h4>{{ __('site.footer_quick_links') }}</h4>
                 <ul class="footer__links">
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('about') }}">Meet Dr. Sujay</a></li>
-                    <li><a href="{{ route('services.index') }}">Services</a></li>
-                    <li><a href="{{ route('library.index') }}">Heart Health Library</a></li>
-                    <li><a href="{{ route('blog.index') }}">Blog</a></li>
-                    <li><a href="{{ route('faqs') }}">FAQs</a></li>
-                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <li><a href="{{ route('home') }}">{{ __('site.nav_home') }}</a></li>
+                    <li><a href="{{ route('about') }}">{{ __('site.nav_meet') }}</a></li>
+                    <li><a href="{{ route('services.index') }}">{{ __('site.nav_services') }}</a></li>
+                    <li><a href="{{ route('library.index') }}">{{ __('site.nav_library') }}</a></li>
+                    <li><a href="{{ route('blog.index') }}">{{ __('site.nav_blog') }}</a></li>
+                    <li><a href="{{ route('faqs') }}">{{ __('site.nav_faqs') }}</a></li>
+                    <li><a href="{{ route('contact') }}">{{ __('site.nav_contact') }}</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4>Our Services</h4>
+                <h4>{{ __('site.footer_our_services') }}</h4>
                 <ul class="footer__links">
                     @forelse($footerServices as $service)
                         <li><a href="{{ route('services.show', $service) }}">{{ $service->title }}</a></li>
@@ -45,7 +45,7 @@
             </div>
 
             <div>
-                <h4>Contact Us</h4>
+                <h4>{{ __('site.footer_contact_us') }}</h4>
                 <ul class="footer__links footer__contact">
                     @if(config('site.address'))
                         <li>
@@ -64,27 +64,27 @@
             </div>
 
             <div>
-                <h4>Meet the Doctor</h4>
+                <h4>{{ __('site.footer_meet_doctor') }}</h4>
                 <p>{{ config('site.name') }} is a Consultant {{ config('site.specialty') }} committed to prevention, early diagnosis, and long-term heart care.</p>
-                <a href="{{ route('about') }}" class="btn btn--red" style="margin-top:.4rem">Know More</a>
+                <a href="{{ route('about') }}" class="btn btn--red" style="margin-top:.4rem">{{ __('site.know_more') }}</a>
             </div>
         </div>
 
         <div class="footer__bottom">
-            <span>&copy; {{ now()->year }} {{ config('site.name') }}. All Rights Reserved.</span>
+            <span>&copy; {{ now()->year }} {{ config('site.name') }}. {{ __('site.footer_rights') }}</span>
             <span class="footer__credit">
-                Designed with <span class="footer__heart" aria-label="love">&#10084;</span> by
+                {{ __('site.designed_with') }} <span class="footer__heart" aria-label="love">&#10084;</span> {{ __('site.designed_by') }}
                 <a href="https://trivarta.in" target="_blank" rel="noopener">Trivarta Tech Pvt Ltd</a>
             </span>
             <span>
-                <a href="{{ route('contact') }}">Privacy Policy</a>
+                <a href="{{ route('contact') }}">{{ __('site.privacy_policy') }}</a>
                 &nbsp;|&nbsp;
-                <a href="#medical-disclaimer">Medical Disclaimer</a>
+                <a href="#medical-disclaimer">{{ __('site.medical_disclaimer') }}</a>
             </span>
         </div>
 
         <p id="medical-disclaimer" style="font-size:.75rem;color:#7b98b8;margin-top:1rem">
-            <strong>Medical disclaimer:</strong> The content on this website is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for any questions regarding a medical condition.
+            <strong>{{ __('site.medical_disclaimer') }}:</strong> {{ __('site.disclaimer_text') }}
         </p>
     </div>
 </footer>

@@ -40,6 +40,23 @@ return [
     'ga_id' => env('GA_MEASUREMENT_ID', ''),
     'google_site_verification' => env('GOOGLE_SITE_VERIFICATION', ''),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Languages
+    |--------------------------------------------------------------------------
+    | Locale is stored in the session and switched via ?lang=xx, so existing
+    | URLs are unchanged. Missing strings fall back to English automatically.
+    */
+    'locales' => [
+        'en' => 'English',
+        'kn' => 'ಕನ್ನಡ',
+        'hi' => 'हिन्दी',
+        'bn' => 'বাংলা',
+        'te' => 'తెలుగు',
+        'ml' => 'മലയാളം',
+        'or' => 'ଓଡ଼ିଆ',
+    ],
+
     'social' => [
         'facebook' => env('SOCIAL_FACEBOOK', ''),
         'instagram' => env('SOCIAL_INSTAGRAM', ''),
