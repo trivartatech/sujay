@@ -12,6 +12,15 @@
 <meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ url()->current() }}">
 
+{{-- hreflang — tells Google these are translations of one page, not duplicates --}}
+@php($alternates = \App\Support\Locale::alternates())
+@if(count($alternates) > 1)
+    @foreach($alternates as $altLocale => $altUrl)
+        <link rel="alternate" hreflang="{{ $altLocale }}" href="{{ $altUrl }}">
+    @endforeach
+    <link rel="alternate" hreflang="x-default" href="{{ $alternates['en'] ?? url()->current() }}">
+@endif
+
 {{-- Open Graph / social --}}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ $siteName }}">

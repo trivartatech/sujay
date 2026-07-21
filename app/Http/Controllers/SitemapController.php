@@ -7,23 +7,25 @@ use App\Models\LibrarySection;
 use App\Models\Post;
 use App\Models\Procedure;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\URL;
 
 class SitemapController extends Controller
 {
     public function index(): Response
     {
-        $urls = [];
+        $entries = [];
 
         // Static pages
         $static = ['home', 'about', 'philosophy', 'services.index', 'library.index', 'faqs', 'blog.index', 'contact', 'appointment.create'];
         foreach ($static as $name) {
-            $urls[] = ['loc' => route($name), 'priority' => $name === 'home' ? '1.0' : '0.7'];
+            $entries[] = ['route' => $name, 'priority' => $name === 'home' ? '1.0' : '0.7'];
         }
 
         // Services
         foreach (Procedure::published()->get() as $procedure) {
-            $urls[] = [
-                'loc' => route('services.show', $procedure),
+            $entries[] = [
+                'route' => 'services.show',
+                'params' => [$procedure],
                 'lastmod' => $procedure->updated_at?->toAtomString(),
                 'priority' => '0.8',
             ];
@@ -31,8 +33,9 @@ class SitemapController extends Controller
 
         // Heart Health Library sections + their articles
         foreach (LibrarySection::published()->get() as $section) {
-            $urls[] = [
-                'loc' => route('library.section', $section),
+            $entries[] = [
+                'route' => 'library.section',
+                'params' => [$section],
                 'lastmod' => $section->updated_at?->toAtomString(),
                 'priority' => '0.8',
             ];
@@ -43,8 +46,9 @@ class SitemapController extends Controller
                 continue;
             }
 
-            $urls[] = [
-                'loc' => route('library.article', [$article->section, $article]),
+            $entries[] = [
+                'route' => 'library.article',
+                'params' => [$article->section, $article],
                 'lastmod' => $article->updated_at?->toAtomString(),
                 'priority' => '0.6',
             ];
@@ -52,11 +56,39 @@ class SitemapController extends Controller
 
         // Blog posts
         foreach (Post::published()->get() as $post) {
-            $urls[] = [
-                'loc' => route('blog.show', $post),
+            $entries[] = [
+                'route' => 'blog.show',
+                'params' => [$post],
                 'lastmod' => ($post->updated_at ?? $post->published_at)?->toAtomString(),
                 'priority' => '0.6',
             ];
+        }
+
+        // Expand each page into one <url> per locale, each carrying the full set
+        // of xhtml:link alternates so Google can group the translations.
+        $locales = array_keys(config('site.locales', ['en' => 'English']));
+        $urls = [];
+
+        foreach ($entries as $entry) {
+            $params = $entry['params'] ?? [];
+
+            $alternates = [];
+            foreach ($locales as $locale) {
+                $url = URL::routeForLocale($locale, $entry['route'], $params);
+
+                if ($url !== null) {
+                    $alternates[$locale] = $url;
+                }
+            }
+
+            foreach ($alternates as $loc) {
+                $urls[] = [
+                    'loc' => $loc,
+                    'lastmod' => $entry['lastmod'] ?? null,
+                    'priority' => $entry['priority'],
+                    'alternates' => $alternates,
+                ];
+            }
         }
 
         return response()

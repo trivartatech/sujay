@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\LibrarySection;
+use App\Support\LocalizedUrlGenerator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
@@ -14,7 +16,24 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //
+        // Swap in the locale-aware URL generator so route('faqs') resolves to
+        // the current locale's copy of the route. Mirrors the wiring Laravel's
+        // own RoutingServiceProvider does, using only public setters.
+        $this->app->extend('url', function (UrlGenerator $url, $app) {
+            $new = new LocalizedUrlGenerator(
+                $app['routes'],
+                $app['request'],
+                $app['config']['app.asset_url'],
+            );
+
+            $new->setSessionResolver(fn () => $app['session'] ?? null);
+            $new->setKeyResolver(fn () => $app['config']['app.key']);
+
+            $app->rebinding('request', fn ($app, $request) => $app['url']->setRequest($request));
+            $app->rebinding('routes', fn ($app, $routes) => $app['url']->setRoutes($routes));
+
+            return $new;
+        });
     }
 
     public function boot(): void

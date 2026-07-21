@@ -27,18 +27,21 @@
             <li><a href="{{ route('blog.index') }}">{{ __('site.nav_blog') }}</a></li>
             <li><a href="{{ route('faqs') }}">{{ __('site.nav_faqs') }}</a></li>
 
-            @php($locales = config('site.locales', []))
-            @if(count($locales) > 1)
+            @php
+                $locales = config('site.locales', []);
+                $alternates = \App\Support\Locale::alternates();
+            @endphp
+            @if(count($alternates) > 1)
                 <li class="has-drop lang-switch">
                     <a href="#" aria-label="{{ __('site.language') }}">
                         <x-ui-icon name="globe" style="width:15px;height:15px" />
                         {{ $locales[app()->getLocale()] ?? 'English' }}
                     </a>
                     <ul class="drop">
-                        @foreach($locales as $code => $label)
+                        @foreach($alternates as $code => $url)
                             <li>
-                                <a href="{{ request()->fullUrlWithQuery(['lang' => $code]) }}"
-                                   @if($code === app()->getLocale()) aria-current="true" @endif>{{ $label }}</a>
+                                <a href="{{ $url }}" hreflang="{{ $code }}"
+                                   @if($code === app()->getLocale()) aria-current="true" @endif>{{ $locales[$code] ?? $code }}</a>
                             </li>
                         @endforeach
                     </ul>
