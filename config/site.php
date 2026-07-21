@@ -15,12 +15,12 @@ return [
     'domain' => 'drsujayj.in',
 
     // tel: link target — full international format, no spaces
-    'phone' => env('CLINIC_PHONE', '+917259975826'),
+    'phone' => env('CLINIC_PHONE', '+916361259749'),
     // Human-readable version shown on the page
-    'phone_display' => env('CLINIC_PHONE_DISPLAY', '+91 72599 75826'),
+    'phone_display' => env('CLINIC_PHONE_DISPLAY', '+91 63612 59749'),
 
     // wa.me target — country code + number, digits only
-    'whatsapp' => env('CLINIC_WHATSAPP', '917259975826'),
+    'whatsapp' => env('CLINIC_WHATSAPP', '916361259749'),
 
     'email' => env('CLINIC_EMAIL', 'drsujaycardio@gmail.com'),
     'address' => env('CLINIC_ADDRESS', 'Apollo Hospitals – Sarjapur Road, Bengaluru'),
