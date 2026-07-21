@@ -5,7 +5,10 @@
             <img src="{{ asset('images/logo-text.png') }}?v={{ @filemtime(public_path('images/logo-text.png')) ?: '1' }}" alt="{{ config('site.name') }} — {{ config('site.specialty') }}" class="brand__wordmark">
         </a>
 
-        <button class="nav__toggle" aria-label="Toggle menu">&#9776;</button>
+        @php
+            $locales = config('site.locales', []);
+            $alternates = \App\Support\Locale::alternates();
+        @endphp
 
         <ul class="nav__links">
             <li><a href="{{ route('home') }}">{{ __('site.nav_home') }}</a></li>
@@ -27,27 +30,6 @@
             <li><a href="{{ route('blog.index') }}">{{ __('site.nav_blog') }}</a></li>
             <li><a href="{{ route('faqs') }}">{{ __('site.nav_faqs') }}</a></li>
 
-            @php
-                $locales = config('site.locales', []);
-                $alternates = \App\Support\Locale::alternates();
-            @endphp
-            @if(count($alternates) > 1)
-                <li class="has-drop lang-switch">
-                    <a href="#" aria-label="{{ __('site.language') }}">
-                        <x-ui-icon name="globe" style="width:15px;height:15px" />
-                        {{ $locales[app()->getLocale()] ?? 'English' }}
-                    </a>
-                    <ul class="drop">
-                        @foreach($alternates as $code => $url)
-                            <li>
-                                <a href="{{ $url }}" hreflang="{{ $code }}"
-                                   @if($code === app()->getLocale()) aria-current="true" @endif>{{ $locales[$code] ?? $code }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endif
-
             <li>
                 <a href="{{ route('appointment.create') }}" class="btn btn--primary">
                     <x-ui-icon name="calendar" style="width:16px;height:16px" />
@@ -55,5 +37,25 @@
                 </a>
             </li>
         </ul>
+
+        {{-- Sits in the header bar on every screen size, never inside the
+             hamburger. Without JS the select is a plain GET — ?lang=xx 301s to
+             the prefixed URL; with JS it jumps straight to the translated page. --}}
+        <div class="nav__utility">
+            @if(count($alternates) > 1)
+                <form class="lang-select" method="GET" action="">
+                    <x-ui-icon name="globe" aria-hidden="true" />
+                    <label class="sr-only" for="langSelect">{{ __('site.language') }}</label>
+                    <select id="langSelect" name="lang" data-lang-select>
+                        @foreach($alternates as $code => $url)
+                            <option value="{{ $code }}" data-url="{{ $url }}" @selected($code === app()->getLocale())>{{ $locales[$code] ?? $code }}</option>
+                        @endforeach
+                    </select>
+                    <noscript><button type="submit" class="lang-select__go">&rarr;</button></noscript>
+                </form>
+            @endif
+
+            <button class="nav__toggle" aria-label="Toggle menu">&#9776;</button>
+        </div>
     </div>
 </header>

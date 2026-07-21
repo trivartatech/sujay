@@ -51,6 +51,18 @@
         document.querySelector('.nav__toggle')?.addEventListener('click', function () {
             document.querySelector('.nav__links')?.classList.toggle('is-open');
         });
+
+        // Language picker: go straight to the translated URL. Without JS the
+        // form still submits ?lang=xx, which 301s to the same place.
+        document.querySelector('[data-lang-select]')?.addEventListener('change', function (e) {
+            var opt = e.target.selectedOptions[0];
+            if (opt && opt.dataset.url) {
+                e.preventDefault();
+                window.location.href = opt.dataset.url;
+            } else {
+                e.target.form.submit();
+            }
+        });
     </script>
 
     {{-- Subtle scroll-reveal + heartbeat/ECG motion (fail-safe: only hides when JS + no reduced-motion) --}}
