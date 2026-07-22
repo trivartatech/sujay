@@ -85,6 +85,10 @@ p { margin: 0 0 1rem; }
 .nav__links > li > a:not(.btn) { color: var(--ink); font-weight: 500; font-size: .93rem; }
 .nav__links > li > a:not(.btn):hover { color: var(--navy-700); }
 .nav__links > li > a.btn { font-size: .78rem; letter-spacing: .04em; padding: .7rem 1.1rem; }
+/* Keep every nav item on one line — without this, flex shrinks the items and
+   breaks "Meet Dr. Sujay" and the CTA across two rows. */
+.nav__links > li { flex: none; }
+.nav__links > li > a { white-space: nowrap; }
 
 /* Dropdown */
 .has-drop { position: relative; }
@@ -101,6 +105,8 @@ p { margin: 0 0 1rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 .nav__utility { display: flex; align-items: center; gap: .6rem; flex: none; }
+/* Nothing to show above the hamburger breakpoint when the picker is off */
+@media (min-width: 1101px) { .nav__utility--toggle-only { display: none; } }
 .lang-select { display: flex; align-items: center; gap: .3rem; border: 1px solid var(--line); border-radius: 8px; padding: .3rem .5rem; background: #fff; }
 .lang-select:focus-within { border-color: var(--navy-700); box-shadow: 0 0 0 3px rgba(10,31,68,.08); }
 .lang-select > svg { width: 15px; height: 15px; flex: none; color: var(--muted); }
@@ -454,8 +460,16 @@ p { margin: 0 0 1rem; }
     .footer__grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
+/* Between the full-width header and the hamburger, tighten the spacing rather
+   than let the now-unwrappable items overflow the container. */
+@media (max-width: 1280px) {
+    .nav__links { gap: .95rem; }
+    .nav__links > li > a:not(.btn) { font-size: .88rem; }
+    .nav__links > li > a.btn { font-size: .74rem; padding: .65rem .85rem; }
+}
+
 /* Collapse nav to a hamburger before the 6 links + logo + CTA overflow */
-@media (max-width: 980px) {
+@media (max-width: 1100px) {
     .nav__toggle { display: block; }
     .nav__links { position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 1.25rem 1.1rem; border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg); display: none; }
     .nav__links.is-open { display: flex; }

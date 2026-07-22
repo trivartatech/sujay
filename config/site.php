@@ -58,6 +58,19 @@ return [
     ],
 
     /*
+    | The public language picker, hreflang tags and multi-locale sitemap.
+    | Off by default: until the articles are actually translated, the /kn/…
+    | URLs serve English, and advertising seven near-identical copies to Google
+    | reads as duplicate content. The locale URLs keep working either way, so
+    | anything already indexed or bookmarked still resolves.
+    | Enable with LANGUAGE_SWITCHER_ENABLED=true in .env.
+    */
+    'language_switcher' => filter_var(
+        env('LANGUAGE_SWITCHER_ENABLED', false),
+        FILTER_VALIDATE_BOOLEAN
+    ),
+
+    /*
     | Per-language editing in the admin panel. Off by default, so the content
     | screens stay single-language until the clinic is ready to translate.
     |

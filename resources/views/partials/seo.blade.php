@@ -13,7 +13,7 @@
 <link rel="canonical" href="{{ url()->current() }}">
 
 {{-- hreflang — tells Google these are translations of one page, not duplicates --}}
-@php($alternates = \App\Support\Locale::alternates())
+@php($alternates = \App\Support\Locale::switcherEnabled() ? \App\Support\Locale::alternates() : [])
 @if(count($alternates) > 1)
     @foreach($alternates as $altLocale => $altUrl)
         <link rel="alternate" hreflang="{{ $altLocale }}" href="{{ $altUrl }}">

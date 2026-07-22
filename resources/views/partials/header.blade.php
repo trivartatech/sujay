@@ -41,8 +41,12 @@
         {{-- Sits in the header bar on every screen size, never inside the
              hamburger. Without JS the select is a plain GET — ?lang=xx 301s to
              the prefixed URL; with JS it jumps straight to the translated page. --}}
-        <div class="nav__utility">
-            @if(count($alternates) > 1)
+        @php($showLanguagePicker = \App\Support\Locale::switcherEnabled() && count($alternates) > 1)
+
+        {{-- With no picker this holds only the hamburger, which desktop hides —
+             the modifier collapses the empty box so the CTA keeps the right edge. --}}
+        <div class="nav__utility @unless($showLanguagePicker) nav__utility--toggle-only @endunless">
+            @if($showLanguagePicker)
                 <form class="lang-select" method="GET" action="">
                     <x-ui-icon name="globe" aria-hidden="true" />
                     <label class="sr-only" for="langSelect">{{ __('site.language') }}</label>

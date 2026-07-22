@@ -7,6 +7,18 @@ use Illuminate\Support\Facades\URL;
 
 class Locale
 {
+    /**
+     * Whether the public site advertises its other languages — the header
+     * picker, the hreflang tags and the multi-locale sitemap.
+     *
+     * The /kn/… routes stay live regardless; this only controls whether we
+     * point visitors and crawlers at them.
+     */
+    public static function switcherEnabled(): bool
+    {
+        return (bool) config('site.language_switcher', false);
+    }
+
     /** Whether the admin panel exposes per-language content editing. */
     public static function contentTranslationsEnabled(): bool
     {

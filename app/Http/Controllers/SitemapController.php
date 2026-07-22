@@ -66,7 +66,11 @@ class SitemapController extends Controller
 
         // Expand each page into one <url> per locale, each carrying the full set
         // of xhtml:link alternates so Google can group the translations.
-        $locales = array_keys(config('site.locales', ['en' => 'English']));
+        // English only while the language switcher is off — see config/site.php.
+        $locales = \App\Support\Locale::switcherEnabled()
+            ? array_keys(config('site.locales', ['en' => 'English']))
+            : ['en'];
+
         $urls = [];
 
         foreach ($entries as $entry) {
