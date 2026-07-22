@@ -39,7 +39,9 @@
             </div>
 
             <div class="about-hero__photo">
-                <img src="{{ asset('images/dr-sujay.jpg') }}?v={{ @filemtime(public_path('images/dr-sujay.jpg')) ?: '1' }}" alt="Dr. Sujay J, Consultant Interventional Cardiologist">
+                <img src="{{ asset('images/dr-sujay-hero.jpg') }}?v={{ @filemtime(public_path('images/dr-sujay-hero.jpg')) ?: '1' }}"
+                     alt="Dr. Sujay J, Consultant Interventional Cardiologist"
+                     width="400" height="436">
             </div>
         </div>
     </section>

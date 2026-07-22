@@ -330,7 +330,9 @@ p { margin: 0 0 1rem; }
 .about-hero__role { font-size: 1.15rem; font-weight: 700; color: var(--navy-900); margin: 0 0 .5rem; }
 .about-hero__degrees { color: var(--muted); font-weight: 600; font-size: .92rem; margin: 0 0 1rem; }
 .about-hero__lead { color: var(--muted); max-width: 30rem; }
-.about-hero__photo img { width: 100%; border-radius: 18px 18px 18px 96px; box-shadow: var(--shadow-lg); object-fit: cover; }
+/* Capped at the photo's natural width so it never upscales — the column is
+   wider than the source, so centre it rather than stretch it soft. */
+.about-hero__photo img { display: block; width: 100%; max-width: 400px; height: auto; margin: 0 auto; border-radius: 18px 18px 18px 96px; box-shadow: var(--shadow-lg); }
 
 .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.8rem; max-width: 36rem; }
 .stat-item { text-align: center; }
