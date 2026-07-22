@@ -33,12 +33,16 @@
         @php $ecgSeg = 'h60 l8 -4 l8 4 h10 l6 4 l6 -26 l6 34 l6 -12 h10 l12 -7 l12 7 h56 '; @endphp
         <div class="hero__ecg" aria-hidden="true">
             <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-                {{-- One continuous trace. It used to be masked by a blanking window
-                     that swept ahead of the cursor, monitor-style, but on a static
-                     full-width line that just looked like the trace was broken. --}}
-                <path class="ecg-trace" d="M0 28 {{ str_repeat($ecgSeg, 7) }}" fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-                {{-- Sweep cursor — the motion now reads as a scan across the trace --}}
-                <rect class="ecg-cursor ecg-cursor-bar" x="-1.5" y="6" width="3" height="36" rx="1.5"/>
+                <defs>
+                    <mask id="ecgGap" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="48">
+                        <rect width="1200" height="48" fill="#fff"/>
+                        {{-- blank "refresh" window just ahead of the sweep cursor --}}
+                        <rect class="ecg-cursor" x="0" y="0" width="90" height="48" fill="#000"/>
+                    </mask>
+                </defs>
+                <path class="ecg-trace" d="M0 28 {{ str_repeat($ecgSeg, 7) }}" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" mask="url(#ecgGap)"/>
+                {{-- glowing sweep cursor at the leading edge --}}
+                <rect class="ecg-cursor ecg-cursor-bar" x="-1.4" y="6" width="2.8" height="36" rx="1.4"/>
             </svg>
         </div>
     </section>
