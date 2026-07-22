@@ -24,7 +24,9 @@
             </div>
 
             <div class="hero__media">
-                <div class="hero__photo hero__photo--placeholder">Doctor photo</div>
+                <img src="{{ asset('images/dr-sujay-hero.jpg') }}?v={{ @filemtime(public_path('images/dr-sujay-hero.jpg')) ?: '1' }}"
+                     alt="{{ config('site.name') }}, Consultant {{ config('site.specialty') }}"
+                     class="hero__photo" width="400" height="436" fetchpriority="high">
             </div>
         </div>
 
