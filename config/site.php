@@ -44,8 +44,8 @@ return [
     |--------------------------------------------------------------------------
     | Languages
     |--------------------------------------------------------------------------
-    | Locale is stored in the session and switched via ?lang=xx, so existing
-    | URLs are unchanged. Missing strings fall back to English automatically.
+    | Locale comes from the URL prefix (/kn/faqs); English keeps the bare URLs.
+    | Missing strings and untranslated content fall back to English.
     */
     'locales' => [
         'en' => 'English',
@@ -56,6 +56,19 @@ return [
         'ml' => 'മലയാളം',
         'or' => 'ଓଡ଼ିଆ',
     ],
+
+    /*
+    | Per-language editing in the admin panel. Off by default, so the content
+    | screens stay single-language until the clinic is ready to translate.
+    |
+    | Turning this off only hides the admin UI — it does not touch stored
+    | translations, and the public site keeps serving any that already exist.
+    | Enable with CONTENT_TRANSLATIONS_ENABLED=true in .env.
+    */
+    'content_translations' => filter_var(
+        env('CONTENT_TRANSLATIONS_ENABLED', false),
+        FILTER_VALIDATE_BOOLEAN
+    ),
 
     'social' => [
         'facebook' => env('SOCIAL_FACEBOOK', ''),

@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Dr Sujay J — Admin')
             ->plugin(
                 SpatieLaravelTranslatablePlugin::make()
-                    ->defaultLocales(array_keys(config('site.locales', ['en' => 'English'])))
+                    ->defaultLocales(\App\Support\Locale::adminLocales())
             )
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

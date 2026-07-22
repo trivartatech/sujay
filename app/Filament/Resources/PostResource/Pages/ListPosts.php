@@ -16,7 +16,8 @@ class ListPosts extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\LocaleSwitcher::make(),
+            Actions\LocaleSwitcher::make()
+                ->visible(fn () => \App\Support\Locale::contentTranslationsEnabled()),
             Actions\CreateAction::make(),
         ];
     }

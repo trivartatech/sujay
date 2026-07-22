@@ -28,7 +28,7 @@ class LibraryArticleResource extends Resource
     /** @return list<string> */
     public static function getTranslatableLocales(): array
     {
-        return array_keys(config('site.locales', ['en' => 'English']));
+        return \App\Support\Locale::adminLocales();
     }
 
     public static function form(Form $form): Form

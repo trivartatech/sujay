@@ -16,7 +16,8 @@ class EditPost extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\LocaleSwitcher::make(),
+            Actions\LocaleSwitcher::make()
+                ->visible(fn () => \App\Support\Locale::contentTranslationsEnabled()),
             Actions\DeleteAction::make(),
         ];
     }

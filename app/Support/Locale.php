@@ -7,6 +7,30 @@ use Illuminate\Support\Facades\URL;
 
 class Locale
 {
+    /** Whether the admin panel exposes per-language content editing. */
+    public static function contentTranslationsEnabled(): bool
+    {
+        return (bool) config('site.content_translations', false);
+    }
+
+    /**
+     * Locales offered on the admin content screens.
+     *
+     * English only while the feature is off, which collapses the panel back to
+     * a single language. Stored translations in other locales are untouched and
+     * the public site still serves them.
+     *
+     * @return list<string>
+     */
+    public static function adminLocales(): array
+    {
+        if (! self::contentTranslationsEnabled()) {
+            return ['en'];
+        }
+
+        return array_keys(config('site.locales', ['en' => 'English']));
+    }
+
     /**
      * The current page's address in every locale, keyed by locale code.
      *
