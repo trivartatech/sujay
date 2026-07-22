@@ -508,8 +508,9 @@ p { margin: 0 0 1rem; }
     .hero__grid { padding-bottom: 0; }
     .grid--3 { grid-template-columns: repeat(2, 1fr); }
     .about-hero__grid { grid-template-columns: 1fr; }
-    /* Same here: no band of gradient between the photo and "Areas of Expertise" */
-    .about-hero__grid { padding-bottom: 0; }
+    /* Trim the gradient band under the photo, but keep enough that the image
+       still ends inside its own section rather than bleeding past it. */
+    .about-hero__grid { padding-bottom: 1.5rem; }
     .about-hero__photo { max-width: 480px; }
     .expertise-grid { grid-template-columns: 1fr; gap: 2rem; }
     .expertise-grid > div:last-child { border-left: 0; padding-left: 0; }
