@@ -132,7 +132,6 @@ p { margin: 0 0 1rem; }
 /* Portrait photo — capped at its natural 400px so it never upscales into
    softness, and right-aligned so it sits against the hero's edge. */
 .hero__photo { display: block; border-radius: var(--radius); width: 100%; max-width: 400px; height: auto; margin-left: auto; background: var(--navy-50); }
-.hero__photo--placeholder { display: grid; place-items: center; aspect-ratio: 4/3.4; color: var(--navy-600); font-weight: 600; }
 .hero__heart { position: relative; display: grid; place-items: center; padding: 1.5rem; }
 .hero__heart::before { content: ""; position: absolute; width: 78%; padding-bottom: 78%; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(226,59,72,.16), rgba(30,75,145,.08) 55%, transparent 72%); z-index: 0; }
 .hero__heart img { position: relative; z-index: 1; width: 100%; max-width: 330px; height: auto; filter: drop-shadow(0 12px 28px rgba(11,58,68,.14)); }
