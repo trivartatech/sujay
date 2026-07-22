@@ -501,8 +501,15 @@ p { margin: 0 0 1rem; }
 @media (max-width: 900px) {
     .hero__grid, .split { grid-template-columns: 1fr; }
     .hero__photo { margin: 0 auto; }
+    /* Stacked, the photo is the last thing in the hero — drop the bottom
+       padding so the section ends at the photo and the ECG trace, pinned to
+       the hero's bottom edge, runs across the image instead of sitting in a
+       strip of empty background below it. */
+    .hero__grid { padding-bottom: 0; }
     .grid--3 { grid-template-columns: repeat(2, 1fr); }
     .about-hero__grid { grid-template-columns: 1fr; }
+    /* Same here: no band of gradient between the photo and "Areas of Expertise" */
+    .about-hero__grid { padding-bottom: 0; }
     .about-hero__photo { max-width: 480px; }
     .expertise-grid { grid-template-columns: 1fr; gap: 2rem; }
     .expertise-grid > div:last-child { border-left: 0; padding-left: 0; }
