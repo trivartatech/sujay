@@ -10,6 +10,7 @@ return [
     'nav_philosophy' => 'সেবার দর্শন',
     'nav_services' => 'সেবাসমূহ',
     'nav_library' => 'হৃদয় স্বাস্থ্য গ্রন্থাগার',
+    'nav_library_all' => 'সব বিভাগ',
     'nav_blog' => 'ব্লগ',
     'nav_faqs' => 'সাধারণ প্রশ্ন',
     'nav_contact' => 'যোগাযোগ',

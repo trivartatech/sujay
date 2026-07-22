@@ -10,6 +10,7 @@ return [
     'nav_philosophy' => 'പരിചരണ ദർശനം',
     'nav_services' => 'സേവനങ്ങൾ',
     'nav_library' => 'ഹൃദയാരോഗ്യ ഗ്രന്ഥശാല',
+    'nav_library_all' => 'എല്ലാ വിഭാഗങ്ങളും',
     'nav_blog' => 'ബ്ലോഗ്',
     'nav_faqs' => 'പതിവ് ചോദ്യങ്ങൾ',
     'nav_contact' => 'ബന്ധപ്പെടുക',

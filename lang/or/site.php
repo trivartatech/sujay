@@ -10,6 +10,7 @@ return [
     'nav_philosophy' => 'ଯତ୍ନର ଦର୍ଶନ',
     'nav_services' => 'ସେବାସମୂହ',
     'nav_library' => 'ହୃଦୟ ସ୍ୱାସ୍ଥ୍ୟ ଗ୍ରନ୍ଥାଗାର',
+    'nav_library_all' => 'ସମସ୍ତ ବିଭାଗ',
     'nav_blog' => 'ବ୍ଲଗ୍',
     'nav_faqs' => 'ସାଧାରଣ ପ୍ରଶ୍ନ',
     'nav_contact' => 'ଯୋଗାଯୋଗ',

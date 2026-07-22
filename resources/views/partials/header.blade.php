@@ -29,6 +29,9 @@
                         <span aria-hidden="true">&#9662;</span>
                     </button>
                     <ul class="drop" id="librarySections">
+                        {{-- On mobile the label toggles instead of navigating, so the
+                             library page itself needs its own entry here. --}}
+                        <li class="drop__all"><a href="{{ route('library.index') }}">{{ __('site.nav_library_all') }}</a></li>
                         @foreach($navSections as $navSection)
                             <li><a href="{{ route('library.section', $navSection) }}">{{ $navSection->title }}</a></li>
                         @endforeach

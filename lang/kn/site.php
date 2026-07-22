@@ -10,6 +10,7 @@ return [
     'nav_philosophy' => 'ಆರೈಕೆಯ ತತ್ವ',
     'nav_services' => 'ಸೇವೆಗಳು',
     'nav_library' => 'ಹೃದಯ ಆರೋಗ್ಯ ಗ್ರಂಥಾಲಯ',
+    'nav_library_all' => 'ಎಲ್ಲಾ ವಿಭಾಗಗಳು',
     'nav_blog' => 'ಬ್ಲಾಗ್',
     'nav_faqs' => 'ಪ್ರಶ್ನೆಗಳು',
     'nav_contact' => 'ಸಂಪರ್ಕ',

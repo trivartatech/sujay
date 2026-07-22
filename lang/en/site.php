@@ -12,6 +12,7 @@ return [
     'nav_philosophy' => 'Philosophy of Care',
     'nav_services' => 'Services',
     'nav_library' => 'Heart Health Library',
+    'nav_library_all' => 'All Sections',
     'nav_blog' => 'Blog',
     'nav_faqs' => 'FAQs',
     'nav_contact' => 'Contact',

@@ -52,15 +52,35 @@
             document.querySelector('.nav__links')?.classList.toggle('is-open');
         });
 
-        // Mobile submenu. The button only exists where a dropdown has children,
-        // and is hidden by CSS on desktop, where hover still does the work.
-        document.querySelectorAll('.drop-toggle').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var parent = btn.closest('.has-drop');
+        // Mobile submenu. Tapping anywhere on the row opens it — the caret alone
+        // was too small a target to find. Desktop still uses hover, and its label
+        // still navigates, so this only applies below the hamburger breakpoint.
+        (function () {
+            var mobile = window.matchMedia('(max-width: 1100px)');
+
+            function toggle(parent) {
                 var open = parent.classList.toggle('is-open');
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                var btn = parent.querySelector('.drop-toggle');
+                if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+
+            document.querySelectorAll('.has-drop').forEach(function (parent) {
+                if (!parent.querySelector('.drop')) return;
+
+                parent.querySelector('.drop-toggle')?.addEventListener('click', function () {
+                    toggle(parent);
+                });
+
+                // The label is a real link to the library page. On mobile we
+                // intercept it and expand instead; "All Sections" inside the
+                // submenu is how you reach that page there.
+                parent.querySelector(':scope > a')?.addEventListener('click', function (e) {
+                    if (!mobile.matches) return;
+                    e.preventDefault();
+                    toggle(parent);
+                });
             });
-        });
+        })();
 
         // Language picker: go straight to the translated URL. Without JS the
         // form still submits ?lang=xx, which 301s to the same place.

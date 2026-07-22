@@ -10,6 +10,7 @@ return [
     'nav_philosophy' => 'సంరక్షణ తత్వం',
     'nav_services' => 'సేవలు',
     'nav_library' => 'గుండె ఆరోగ్య గ్రంథాలయం',
+    'nav_library_all' => 'అన్ని విభాగాలు',
     'nav_blog' => 'బ్లాగ్',
     'nav_faqs' => 'ప్రశ్నలు',
     'nav_contact' => 'సంప్రదించండి',

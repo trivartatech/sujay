@@ -10,6 +10,7 @@ return [
     'nav_philosophy' => 'देखभाल का दर्शन',
     'nav_services' => 'सेवाएँ',
     'nav_library' => 'हृदय स्वास्थ्य पुस्तकालय',
+    'nav_library_all' => 'सभी अनुभाग',
     'nav_blog' => 'ब्लॉग',
     'nav_faqs' => 'सामान्य प्रश्न',
     'nav_contact' => 'संपर्क',

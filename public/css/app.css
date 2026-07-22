@@ -99,8 +99,10 @@ p { margin: 0 0 1rem; }
 .has-drop:hover .drop, .has-drop:focus-within .drop { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity .16s ease, transform .16s ease, visibility 0s; }
 .drop li a { display: block; padding: .5rem .7rem; border-radius: 6px; font-size: .9rem; color: var(--ink); }
 .drop li a:hover { background: var(--navy-50); text-decoration: none; }
-/* Desktop opens the submenu on hover, so the tap target is mobile-only */
+/* Desktop opens the submenu on hover and its label is a working link, so both
+   the tap target and the "All Sections" entry are mobile-only */
 .drop-toggle { display: none; }
+.drop__all { display: none; }
 
 /* Language switcher — lives in the header bar, not in the nav menu, so it
    stays reachable on mobile without opening the hamburger. */
@@ -486,9 +488,12 @@ p { margin: 0 0 1rem; }
     .has-drop > a::after { content: none; }
 
     .nav__links > li.has-drop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    /* The whole row toggles, so the label should stretch to fill it */
+    .nav__links > li.has-drop > a { flex: 1; }
+    .drop__all { display: block; }
     .drop-toggle {
         display: grid; place-items: center; width: 44px; height: 34px; margin: -.35rem 0;
-        background: none; border: 0; cursor: pointer; color: var(--muted); font-size: .8rem; line-height: 1;
+        background: none; border: 0; cursor: pointer; color: var(--navy-700); font-size: 1rem; line-height: 1;
     }
     .drop-toggle span { transition: transform .18s ease; }
     .has-drop.is-open .drop-toggle span { transform: rotate(180deg); }
