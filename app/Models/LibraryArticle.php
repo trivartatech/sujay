@@ -6,10 +6,25 @@ use App\Models\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
 
 class LibraryArticle extends Model
 {
-    use HasSlug;
+    use HasSlug, HasTranslations;
+
+    /**
+     * Stored as JSON per locale; reading returns the active locale
+     * and falls back to English when a translation is missing.
+     *
+     * @var list<string>
+     */
+    public array $translatable = [
+        'title',
+        'excerpt',
+        'body',
+        'meta_title',
+        'meta_description',
+    ];
 
     protected $fillable = [
         'library_section_id',

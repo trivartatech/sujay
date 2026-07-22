@@ -4,9 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Faq extends Model
 {
+    use HasTranslations;
+
+    /**
+     * Stored as JSON per locale; reading returns the active locale
+     * and falls back to English when a translation is missing.
+     *
+     * @var list<string>
+     */
+    public array $translatable = [
+        'question',
+        'answer',
+    ];
+
     protected $fillable = [
         'question',
         'answer',

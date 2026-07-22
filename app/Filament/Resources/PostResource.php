@@ -7,12 +7,15 @@ use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
 class PostResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
@@ -20,6 +23,12 @@ class PostResource extends Resource
     protected static ?string $navigationGroup = 'Content';
 
     protected static ?int $navigationSort = 1;
+
+    /** @return list<string> */
+    public static function getTranslatableLocales(): array
+    {
+        return array_keys(config('site.locales', ['en' => 'English']));
+    }
 
     public static function form(Form $form): Form
     {

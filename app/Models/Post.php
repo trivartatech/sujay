@@ -8,10 +8,25 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
-    use HasSlug;
+    use HasSlug, HasTranslations;
+
+    /**
+     * Stored as JSON per locale; reading returns the active locale
+     * and falls back to English when a translation is missing.
+     *
+     * @var list<string>
+     */
+    public array $translatable = [
+        'title',
+        'excerpt',
+        'body',
+        'meta_title',
+        'meta_description',
+    ];
 
     protected $fillable = [
         'category_id',

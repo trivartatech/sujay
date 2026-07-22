@@ -6,12 +6,15 @@ use App\Filament\Resources\LibraryArticleResource\Pages;
 use App\Models\LibraryArticle;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
 class LibraryArticleResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = LibraryArticle::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
@@ -21,6 +24,12 @@ class LibraryArticleResource extends Resource
     protected static ?string $navigationLabel = 'All Articles';
 
     protected static ?int $navigationSort = 2;
+
+    /** @return list<string> */
+    public static function getTranslatableLocales(): array
+    {
+        return array_keys(config('site.locales', ['en' => 'English']));
+    }
 
     public static function form(Form $form): Form
     {

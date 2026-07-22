@@ -6,12 +6,15 @@ use App\Filament\Resources\ProcedureResource\Pages;
 use App\Models\Procedure;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
 class ProcedureResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Procedure::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-heart';
@@ -36,6 +39,12 @@ class ProcedureResource extends Resource
         'stethoscope' => 'Stethoscope',
         'shield-check' => 'Prevention / shield',
     ];
+
+    /** @return list<string> */
+    public static function getTranslatableLocales(): array
+    {
+        return array_keys(config('site.locales', ['en' => 'English']));
+    }
 
     public static function form(Form $form): Form
     {

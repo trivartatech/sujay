@@ -22,10 +22,32 @@ trait HasSlug
             $column = $model->slugColumnName();
 
             // Only (re)generate when the slug is empty.
-            if (blank($model->{$column}) && filled($model->{$source})) {
-                $model->{$column} = $model->generateUniqueSlug((string) $model->{$source});
+            $value = $model->slugSourceValue();
+
+            if (blank($model->{$column}) && filled($value)) {
+                $model->{$column} = $model->generateUniqueSlug($value);
             }
         });
+    }
+
+    /**
+     * Always slug from the English text on translatable models — Str::slug()
+     * strips non-Latin scripts, so slugging a Kannada title would yield an
+     * empty slug. URLs stay English across every locale by design.
+     */
+    protected function slugSourceValue(): string
+    {
+        $source = $this->slugSourceColumn();
+
+        if (method_exists($this, 'getTranslation')) {
+            $english = (string) $this->getTranslation($source, 'en', false);
+
+            if ($english !== '') {
+                return $english;
+            }
+        }
+
+        return (string) $this->{$source};
     }
 
     protected function slugSourceColumn(): string

@@ -5,14 +5,18 @@ namespace App\Filament\Resources\ProcedureResource\Pages;
 use App\Filament\Resources\ProcedureResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Resources\Pages\ListRecords\Concerns\Translatable;
 
 class ListProcedures extends ListRecords
 {
+    use Translatable;
+
     protected static string $resource = ProcedureResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
+            Actions\LocaleSwitcher::make(),
             Actions\CreateAction::make(),
         ];
     }

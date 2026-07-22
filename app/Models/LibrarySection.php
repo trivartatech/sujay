@@ -7,13 +7,28 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
+use Spatie\Translatable\HasTranslations;
 
 class LibrarySection extends Model
 {
-    use HasSlug;
+    use HasSlug, HasTranslations;
 
     /** Cache key for the header dropdown (see AppServiceProvider). */
     public const NAV_CACHE_KEY = 'nav.library_sections';
+
+    /**
+     * Stored as JSON per locale; reading returns the active locale
+     * and falls back to English when a translation is missing.
+     *
+     * @var list<string>
+     */
+    public array $translatable = [
+        'title',
+        'description',
+        'body',
+        'meta_title',
+        'meta_description',
+    ];
 
     protected $fillable = [
         'title',
