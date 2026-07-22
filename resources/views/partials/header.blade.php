@@ -19,7 +19,16 @@
             <li class="has-drop">
                 <a href="{{ route('library.index') }}">{{ __('site.nav_library') }}</a>
                 @if(!empty($navSections) && $navSections->isNotEmpty())
-                    <ul class="drop">
+                    {{-- Mobile only: the sections are collapsed behind this, so they
+                         stop pushing Blog/FAQs/the CTA off the bottom of the menu.
+                         Separate from the link above so tapping the label still
+                         opens the library page. Desktop keeps hover. --}}
+                    <button type="button" class="drop-toggle" aria-expanded="false"
+                            aria-controls="librarySections"
+                            aria-label="{{ __('site.nav_library') }}">
+                        <span aria-hidden="true">&#9662;</span>
+                    </button>
+                    <ul class="drop" id="librarySections">
                         @foreach($navSections as $navSection)
                             <li><a href="{{ route('library.section', $navSection) }}">{{ $navSection->title }}</a></li>
                         @endforeach

@@ -52,6 +52,16 @@
             document.querySelector('.nav__links')?.classList.toggle('is-open');
         });
 
+        // Mobile submenu. The button only exists where a dropdown has children,
+        // and is hidden by CSS on desktop, where hover still does the work.
+        document.querySelectorAll('.drop-toggle').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var parent = btn.closest('.has-drop');
+                var open = parent.classList.toggle('is-open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        });
+
         // Language picker: go straight to the translated URL. Without JS the
         // form still submits ?lang=xx, which 301s to the same place.
         document.querySelector('[data-lang-select]')?.addEventListener('change', function (e) {
