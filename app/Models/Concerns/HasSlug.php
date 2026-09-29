@@ -18,15 +18,26 @@ trait HasSlug
     public static function bootHasSlug(): void
     {
         static::saving(function (Model $model) {
-            $source = $model->slugSourceColumn();
             $column = $model->slugColumnName();
-
-            // Only (re)generate when the slug is empty.
             $value = $model->slugSourceValue();
 
-            if (blank($model->{$column}) && filled($value)) {
-                $model->{$column} = $model->generateUniqueSlug($value);
+            if (blank($model->{$column})) {
+                // No slug given — generate a unique one from the source text.
+                if (filled($value)) {
+                    $model->{$column} = $model->generateUniqueSlug($value);
+                }
+
+                return;
             }
+
+            // A slug was set by hand. Normalise it so a pasted path, stray
+            // slashes or spaces can never reach the DB and double up the route
+            // (e.g. "/heart-conditions/cardiomyopathy/" → "heart-conditions-cardiomyopathy").
+            // Str::slug is idempotent on already-clean slugs, so existing URLs
+            // never move. If it sanitises to nothing (e.g. a non-Latin slug),
+            // fall back to generating from the source text.
+            $clean = Str::slug((string) $model->{$column});
+            $model->{$column} = $clean !== '' ? $clean : $model->generateUniqueSlug($value);
         });
     }
 
